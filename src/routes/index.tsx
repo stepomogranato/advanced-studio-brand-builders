@@ -100,35 +100,37 @@ function Home() {
 
           <div className="mt-16 grid grid-cols-12 gap-3 md:gap-4">
             <figure className="col-span-12 md:col-span-7 relative aspect-[16/10] overflow-hidden">
-              <img src={activation1} alt="Trade show" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-              <figcaption className="absolute bottom-4 left-4 text-eyebrow bg-background text-foreground px-3 py-1">Trade shows</figcaption>
+              <img src={activationRetail} alt="Retail activation" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <figcaption className="absolute bottom-4 left-4 text-eyebrow bg-background text-foreground px-3 py-1">Retail activation</figcaption>
             </figure>
             <figure className="col-span-6 md:col-span-5 relative aspect-[4/5] overflow-hidden">
-              <img src={activation2} alt="Community event" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-              <figcaption className="absolute bottom-4 left-4 text-eyebrow bg-background text-foreground px-3 py-1">Community</figcaption>
+              <img src={activationCommunity} alt="Community events" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <figcaption className="absolute bottom-4 left-4 text-eyebrow bg-background text-foreground px-3 py-1">Community events</figcaption>
             </figure>
             <figure className="col-span-6 md:col-span-4 relative aspect-[4/5] overflow-hidden">
-              <img src={activation3} alt="Retail activation" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
-              <figcaption className="absolute bottom-4 left-4 text-eyebrow bg-background text-foreground px-3 py-1">Retail</figcaption>
+              <img src={activationTesting} alt="Product testing" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <figcaption className="absolute bottom-4 left-4 text-eyebrow bg-background text-foreground px-3 py-1">Product testing</figcaption>
             </figure>
             <figure className="col-span-12 md:col-span-8 relative aspect-[16/9] overflow-hidden">
-              <img src={activation4} alt="Field marketing" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <img src={activationField} alt="Field marketing" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
               <figcaption className="absolute bottom-4 left-4 text-eyebrow bg-background text-foreground px-3 py-1">Field marketing</figcaption>
+            </figure>
+            <figure className="col-span-12 relative aspect-[21/9] overflow-hidden">
+              <img src={activationSales} alt="Sales meetings" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <figcaption className="absolute bottom-4 left-4 text-eyebrow bg-background text-foreground px-3 py-1">Sales meetings</figcaption>
             </figure>
           </div>
 
           <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-eyebrow text-background/60">
-            <li>Trade shows</li>
-            <li className="text-accent">/</li>
-            <li>Outdoor events</li>
+            <li>Retail activation</li>
             <li className="text-accent">/</li>
             <li>Product testing</li>
             <li className="text-accent">/</li>
-            <li>Retail activations</li>
-            <li className="text-accent">/</li>
-            <li>Ambassadors</li>
-            <li className="text-accent">/</li>
             <li>Field marketing</li>
+            <li className="text-accent">/</li>
+            <li>Sales meetings</li>
+            <li className="text-accent">/</li>
+            <li>Community events</li>
           </ul>
         </div>
       </section>
