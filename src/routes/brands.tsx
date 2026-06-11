@@ -1,4 +1,4 @@
-import { createFileRoute, Link, Outlet, useMatches } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { brands } from "@/lib/brands";
 
 export const Route = createFileRoute("/brands")({
@@ -10,15 +10,10 @@ export const Route = createFileRoute("/brands")({
       { property: "og:description", content: "Our portfolio of active, outdoor and performance brands." },
     ],
   }),
-  component: BrandsLayout,
+  component: BrandsIndex,
 });
 
-function BrandsLayout() {
-  const matches = useMatches();
-  const isChild = matches.some((m) => m.routeId !== "__root__" && m.routeId !== "/brands" && m.routeId.startsWith("/brands"));
-
-  if (isChild) return <Outlet />;
-
+function BrandsIndex() {
   return (
     <>
       <section className="pt-40 pb-16 md:pb-24 px-6 md:px-10 max-w-[1600px] mx-auto">
