@@ -30,12 +30,12 @@ function Home() {
           height={1080}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60" />
-        <div className="relative z-10 flex h-full flex-col justify-end pb-16 md:pb-24 px-6 md:px-10 max-w-[1600px] mx-auto w-full">
-          <div className="text-eyebrow text-[#F7F4EE]/80 mb-6">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-black/50" />
+        <div className="relative z-10 flex h-full flex-col justify-end pb-24 md:pb-32 lg:pb-40 px-6 md:px-10 max-w-[1600px] mx-auto w-full">
+          <div className="text-eyebrow text-[#F7F4EE]/80 mb-10 md:mb-14">
             <span className="text-accent">●</span>&nbsp;&nbsp;Distribution • Market Development • Brand Management
           </div>
-          <h1 className="text-display text-[#F7F4EE] text-[15vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[8rem] xl:text-[10rem]">
+          <h1 className="text-display text-[#F7F4EE] text-[11vw] sm:text-[8.5vw] md:text-[6.5vw] lg:text-[6rem] xl:text-[7.5rem] leading-[0.95] tracking-[-0.02em]">
             BUILDING BRANDS.
             <br />
             CREATING <span className="text-accent">MARKETS.</span>
