@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero.jpg";
-import activation1 from "@/assets/activation-1.jpg";
-import activation2 from "@/assets/activation-2.jpg";
-import activation3 from "@/assets/activation-3.jpg";
-import activation4 from "@/assets/activation-4.jpg";
+import activationRetail from "@/assets/activation-retail.jpg";
+import activationTesting from "@/assets/activation-testing.jpg";
+import activationField from "@/assets/activation-field.jpg";
+import activationSales from "@/assets/activation-sales.jpg";
+import activationCommunity from "@/assets/activation-community.jpg";
 import { brands } from "@/lib/brands";
 
 export const Route = createFileRoute("/")({
