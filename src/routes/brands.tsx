@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { brands } from "@/lib/brands";
 
 export const Route = createFileRoute("/brands")({
@@ -10,8 +10,18 @@ export const Route = createFileRoute("/brands")({
       { property: "og:description", content: "Our portfolio of active, outdoor and performance brands." },
     ],
   }),
-  component: BrandsIndex,
+  component: BrandsRoute,
 });
+
+function BrandsRoute() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+
+  if (pathname !== "/brands" && pathname !== "/brands/") {
+    return <Outlet />;
+  }
+
+  return <BrandsIndex />;
+}
 
 function BrandsIndex() {
   return (
