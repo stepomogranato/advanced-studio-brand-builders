@@ -14,8 +14,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BrandsRouteImport } from './routes/brands'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BrandsSlugRouteImport } from './routes/brands.$slug'
-import { Route as BrandsIndexRouteImport } from './routes/brands.index'
+import { Route as BrandsSlugRouteImport } from './routes/brands_.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -43,43 +42,35 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const BrandsSlugRoute = BrandsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BrandsRoute,
-} as any)
-const BrandsIndexRoute = BrandsIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => BrandsRoute,
+  id: '/brands/$slug',
+  path: '/brands/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/brands': typeof BrandsRouteWithChildren
+  '/brands': typeof BrandsRoute
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/brands/$slug': typeof BrandsSlugRoute
-  '/brands/': typeof BrandsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/brands': typeof BrandsRouteWithChildren
+  '/brands': typeof BrandsRoute
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/brands/$slug': typeof BrandsSlugRoute
-  '/brands/': typeof BrandsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/brands': typeof BrandsRouteWithChildren
+  '/brands': typeof BrandsRoute
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/brands/$slug': typeof BrandsSlugRoute
-  '/brands/': typeof BrandsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,9 +81,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/sitemap.xml'
     | '/brands/$slug'
-    | '/brands/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/brands' | '/contact' | '/sitemap.xml' | '/brands/$slug' | '/brands/'
+  to: '/' | '/about' | '/brands' | '/contact' | '/sitemap.xml' | '/brands/$slug'
   id:
     | '__root__'
     | '/'
@@ -101,13 +91,13 @@ export interface FileRouteTypes {
     | '/contact'
     | '/sitemap.xml'
     | '/brands/$slug'
-    | '/brands/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BrandsRoute: typeof BrandsRouteWithChildren
+  BrandsRoute: typeof BrandsRoute
+  BrandsSlugRoute: typeof BrandsSlugRoute
   ContactRoute: typeof ContactRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -151,38 +141,19 @@ declare module '@tanstack/react-router' {
     }
     '/brands/$slug': {
       id: '/brands/$slug'
-      path: '/$slug'
+      path: '/brands/$slug'
       fullPath: '/brands/$slug'
       preLoaderRoute: typeof BrandsSlugRouteImport
-      parentRoute: typeof BrandsRoute
-    }
-    '/brands/': {
-      id: '/brands/'
-      path: '/'
-      fullPath: '/brands/'
-      preLoaderRoute: typeof BrandsIndexRouteImport
-      parentRoute: typeof BrandsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface BrandsRouteChildren {
-  BrandsSlugRoute: typeof BrandsSlugRoute
-  BrandsIndexRoute: typeof BrandsIndexRoute
-}
-
-const BrandsRouteChildren: BrandsRouteChildren = {
-  BrandsSlugRoute: BrandsSlugRoute,
-  BrandsIndexRoute: BrandsIndexRoute,
-}
-
-const BrandsRouteWithChildren =
-  BrandsRoute._addFileChildren(BrandsRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BrandsRoute: BrandsRouteWithChildren,
+  BrandsRoute: BrandsRoute,
+  BrandsSlugRoute: BrandsSlugRoute,
   ContactRoute: ContactRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
