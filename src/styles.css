@@ -21,13 +21,13 @@
 }
 
 :root {
-  --background: oklch(0.965 0.012 85);          /* #F7F4EE warm white */
-  --foreground: oklch(0.18 0 0);                /* #111111 charcoal */
+  --background: oklch(0.965 0.012 85); /* #F7F4EE warm white */
+  --foreground: oklch(0.18 0 0); /* #111111 charcoal */
   --ink: oklch(0.18 0 0);
   --muted: oklch(0.93 0.012 80);
   --muted-foreground: oklch(0.45 0.015 60);
-  --accent: oklch(0.66 0.18 38);                /* #E85D24 burnt orange */
-  --accent-dark: oklch(0.56 0.17 38);           /* #C84A16 dark orange */
+  --accent: oklch(0.66 0.18 38); /* #E85D24 burnt orange */
+  --accent-dark: oklch(0.56 0.17 38); /* #C84A16 dark orange */
   --border: oklch(0.86 0.015 70);
   --card: oklch(0.965 0.012 85);
   --card-foreground: oklch(0.18 0 0);
@@ -38,7 +38,8 @@
     border-color: var(--color-border);
   }
 
-  html, body {
+  html,
+  body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
@@ -102,7 +103,12 @@
 }
 
 @utility section-space {
-  padding-block: clamp(5rem, 9vw, 8rem);
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+}
+
+@utility content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
 
 @media (prefers-reduced-motion: reduce) {
