@@ -21,7 +21,7 @@ function NotFoundComponent() {
         <h1 className="text-display text-7xl">404</h1>
         <p className="mt-4 text-sm text-muted-foreground">This page is off-trail.</p>
         <div className="mt-6">
-          <Link to="/" className="text-eyebrow border-b border-foreground pb-1">Back to base camp</Link>
+          <Link to="/" className="text-eyebrow border-b border-foreground pb-1 transition-colors hover:border-accent hover:text-accent">Back to base camp</Link>
         </div>
       </div>
     </div>
@@ -88,6 +88,12 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a
+          href="#main-content"
+          className="fixed left-4 top-4 z-[100] -translate-y-24 bg-accent px-5 py-3 text-sm font-semibold text-background transition-transform focus:translate-y-0"
+        >
+          Skip to content
+        </a>
         {children}
         <Scripts />
       </body>
@@ -100,7 +106,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <SiteNav />
-      <main className="min-h-screen">
+      <main id="main-content" className="min-h-screen" tabIndex={-1}>
         <Outlet />
       </main>
       <SiteFooter />

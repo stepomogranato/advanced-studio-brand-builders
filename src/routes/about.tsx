@@ -37,12 +37,12 @@ function About() {
     <>
       {/* HERO */}
       <section className="relative h-[85vh] w-full overflow-hidden">
-        <img src={aboutHero} alt="Climbers on a granite face at sunset" className="absolute inset-0 h-full w-full object-cover" width={1920} height={1080} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/70" />
+        <img src={aboutHero} alt="Climbers on a granite face at sunset" className="absolute inset-0 h-full w-full object-cover" width={1920} height={1080} loading="eager" fetchPriority="high" sizes="100vw" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/70" />
         <div className="relative z-10 flex h-full items-end pb-20 px-6 md:px-10 max-w-[1600px] mx-auto">
           <div>
             <div className="text-eyebrow text-[#F7F4EE]/80 mb-6">— About Advanced Studio</div>
-            <h1 className="text-display text-[#F7F4EE] text-6xl sm:text-7xl md:text-9xl max-w-5xl">
+            <h1 className="text-display page-title max-w-5xl text-[#F7F4EE]">
               CONNECTING BRANDS
               <br />
               AND <span className="text-accent">MARKETS.</span>
@@ -52,7 +52,7 @@ function About() {
       </section>
 
       {/* INTRO */}
-      <section className="py-24 md:py-32 px-6 md:px-10 max-w-[1600px] mx-auto">
+      <section className="section-space mx-auto max-w-[1600px] px-6 md:px-10">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-4 text-eyebrow text-accent">— What we do</div>
           <div className="md:col-span-8">
@@ -76,7 +76,7 @@ function About() {
             >
               <div className="md:col-span-2 text-display text-5xl text-accent">{p.n}</div>
               <div className="md:col-span-5">
-                <h3 className="text-display text-4xl md:text-6xl">{p.title}</h3>
+                <h2 className="text-display text-4xl md:text-6xl">{p.title}</h2>
               </div>
               <div className="md:col-span-5 self-end">
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-md">{p.body}</p>

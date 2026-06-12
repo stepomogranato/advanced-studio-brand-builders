@@ -44,6 +44,31 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "ss02";
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
   }
 
   ::selection {
@@ -60,8 +85,37 @@
 }
 
 @utility text-eyebrow {
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
+  font-size: clamp(0.6875rem, 0.65rem + 0.12vw, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
   text-transform: uppercase;
+}
+
+@utility page-title {
+  font-size: clamp(3.25rem, 10vw, 9rem);
+  overflow-wrap: anywhere;
+}
+
+@utility section-title {
+  font-size: clamp(3rem, 7vw, 6rem);
+}
+
+@utility section-space {
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

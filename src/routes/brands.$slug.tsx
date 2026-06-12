@@ -40,13 +40,13 @@ function BrandDetail() {
   return (
     <>
       <section className="relative h-[85vh] w-full overflow-hidden">
-        <img src={brand.image} alt={brand.name} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/80" />
+        <img src={brand.image} alt={brand.imageAlt} width={1024} height={1280} loading="eager" fetchPriority="high" sizes="100vw" className="absolute inset-0 h-full w-full object-cover" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/80" />
         <div className="relative z-10 flex h-full flex-col justify-between pt-32 pb-12 px-6 md:px-10 max-w-[1600px] mx-auto text-[#F7F4EE]">
           <Link to="/brands" className="text-eyebrow opacity-80 hover:text-accent self-start">← All brands</Link>
           <div>
             <div className="text-eyebrow text-accent mb-4">{brand.category}</div>
-            <h1 className="text-display text-7xl md:text-9xl lg:text-[12rem]">{brand.name}</h1>
+            <h1 className="text-display page-title max-w-[14ch]">{brand.name}</h1>
           </div>
         </div>
       </section>
@@ -68,7 +68,7 @@ function BrandDetail() {
             </div>
           </div>
           <div className="md:col-span-8">
-            <p className="text-display text-3xl md:text-5xl leading-[1.1]">{brand.description}</p>
+            <h2 className="text-display text-3xl leading-[1.1] md:text-5xl">{brand.description}</h2>
             <p className="mt-8 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               Advanced Studio handles distribution, sales network management and marketing activation for {brand.name} — connecting the brand with the retailers, athletes and communities that drive its growth.
             </p>
@@ -78,11 +78,11 @@ function BrandDetail() {
 
       <section className="border-t border-border">
         <Link to="/brands/$slug" params={{ slug: next.slug }} className="group relative block aspect-[21/9] overflow-hidden">
-          <img src={next.image} alt={next.name} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/30" />
+          <img src={next.image} alt={next.imageAlt} width={1024} height={1280} loading="lazy" decoding="async" sizes="100vw" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105 group-focus-visible:scale-105" />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/30" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-[#F7F4EE] text-center px-6">
             <div className="text-eyebrow text-accent mb-4">Next brand →</div>
-            <div className="text-display text-6xl md:text-9xl">{next.name}</div>
+            <div className="text-display text-[clamp(3rem,8vw,8rem)]">{next.name}</div>
           </div>
         </Link>
       </section>

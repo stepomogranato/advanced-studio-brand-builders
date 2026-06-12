@@ -29,30 +29,33 @@ function Home() {
           alt="Snowboarder carving down an alpine ridge at sunset"
           width={1920}
           height={1080}
+          loading="eager"
+          fetchPriority="high"
+          sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-black/50" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-black/50" />
         <div className="relative z-10 flex h-full flex-col justify-end pb-24 md:pb-32 lg:pb-40 px-6 md:px-10 max-w-[1600px] mx-auto w-full">
-          <div className="text-eyebrow text-[#F7F4EE]/80 mb-10 md:mb-14">
-            <span className="text-accent">●</span>&nbsp;&nbsp;Distribution • Market Development • Brand Management
+          <div className="text-eyebrow mb-8 max-w-2xl text-[#F7F4EE]/85 md:mb-12">
+            <span aria-hidden="true" className="text-accent">●</span>&nbsp;&nbsp;Distribution • Market Development • Brand Management
           </div>
-          <h1 className="text-display text-[#F7F4EE] text-[11vw] sm:text-[8.5vw] md:text-[6.5vw] lg:text-[6rem] xl:text-[7.5rem] leading-[0.95] tracking-[-0.02em]">
+          <h1 className="text-display text-[clamp(3.25rem,8.5vw,7.5rem)] leading-[0.95] tracking-[-0.025em] text-[#F7F4EE]">
             BUILDING BRANDS.
             <br />
             CREATING <span className="text-accent">MARKETS.</span>
           </h1>
         </div>
-        <div className="absolute bottom-6 right-6 md:right-10 text-eyebrow text-[#F7F4EE]/70 z-10">
+        <div className="absolute bottom-6 right-6 z-10 hidden text-eyebrow text-[#F7F4EE]/75 sm:block md:right-10">
           EST. — Active / Outdoor / Performance
         </div>
       </section>
 
       {/* BRANDS */}
-      <section className="py-24 md:py-32 px-6 md:px-10 max-w-[1600px] mx-auto">
+      <section className="section-space mx-auto max-w-[1600px] px-6 md:px-10">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
           <div>
             <div className="text-eyebrow text-accent mb-4">— Portfolio</div>
-            <h2 className="text-display text-6xl md:text-8xl">OUR BRANDS</h2>
+            <h2 className="text-display section-title">OUR BRANDS</h2>
           </div>
           <p className="max-w-md text-sm md:text-base text-muted-foreground">
             A curated portfolio of active, outdoor and performance brands we distribute and develop across markets.
@@ -69,16 +72,20 @@ function Home() {
             >
               <img
                 src={b.image}
-                alt={b.name}
+                alt={b.imageAlt}
+                width={1024}
+                height={1280}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                decoding="async"
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105 group-focus-visible:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between text-[#F7F4EE]">
                 <div className="text-eyebrow opacity-80">{b.category}</div>
                 <div>
                   <div className="text-display text-3xl md:text-4xl">{b.name}</div>
-                  <div className="mt-3 inline-flex items-center gap-2 text-eyebrow text-accent opacity-0 group-hover:opacity-100 transition">
+                  <div className="mt-3 inline-flex items-center gap-2 text-eyebrow text-accent opacity-100 transition md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100">
                     View brand <span aria-hidden>→</span>
                   </div>
                 </div>
@@ -89,10 +96,10 @@ function Home() {
       </section>
 
       {/* ACTIVATIONS */}
-      <section className="bg-foreground text-background py-24 md:py-32">
+      <section className="section-space bg-foreground text-background">
         <div className="max-w-[1600px] mx-auto px-6 md:px-10">
           <div className="text-eyebrow text-accent mb-6">— Marketing Activations</div>
-          <h2 className="text-display text-5xl md:text-7xl lg:text-8xl max-w-5xl">
+          <h2 className="text-display section-title max-w-5xl">
             FROM PRODUCT
             <br />
             TO <span className="text-accent">COMMUNITY.</span>
@@ -100,47 +107,47 @@ function Home() {
 
           <div className="mt-16 grid grid-cols-12 gap-3 md:gap-4">
             <figure className="col-span-12 md:col-span-7 relative aspect-[16/10] overflow-hidden">
-              <img src={activationRetail} alt="Retail activation" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <img src={activationRetail} alt="Retail activation display in a specialty store" width={1024} height={1024} loading="lazy" decoding="async" sizes="(min-width: 768px) 58vw, 100vw" className="absolute inset-0 h-full w-full object-cover" />
               <figcaption className="absolute bottom-4 left-4 text-eyebrow bg-background text-foreground px-3 py-1">Retail activation</figcaption>
             </figure>
             <figure className="col-span-6 md:col-span-5 relative aspect-[4/5] overflow-hidden">
-              <img src={activationCommunity} alt="Community events" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <img src={activationCommunity} alt="Outdoor community event with brand participants" width={1024} height={1024} loading="lazy" decoding="async" sizes="(min-width: 768px) 42vw, 50vw" className="absolute inset-0 h-full w-full object-cover" />
               <figcaption className="absolute bottom-4 left-4 text-eyebrow bg-background text-foreground px-3 py-1">Community events</figcaption>
             </figure>
             <figure className="col-span-6 md:col-span-4 relative aspect-[4/5] overflow-hidden">
-              <img src={activationTesting} alt="Product testing" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <img src={activationTesting} alt="Athletes testing products outdoors" width={1024} height={1024} loading="lazy" decoding="async" sizes="(min-width: 768px) 33vw, 50vw" className="absolute inset-0 h-full w-full object-cover" />
               <figcaption className="absolute bottom-4 left-4 text-eyebrow bg-background text-foreground px-3 py-1">Product testing</figcaption>
             </figure>
             <figure className="col-span-12 md:col-span-8 relative aspect-[16/9] overflow-hidden">
-              <img src={activationField} alt="Field marketing" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <img src={activationField} alt="Field marketing team at an outdoor activation" width={1024} height={1024} loading="lazy" decoding="async" sizes="(min-width: 768px) 67vw, 100vw" className="absolute inset-0 h-full w-full object-cover" />
               <figcaption className="absolute bottom-4 left-4 text-eyebrow bg-background text-foreground px-3 py-1">Field marketing</figcaption>
             </figure>
             <figure className="col-span-12 relative aspect-[21/9] overflow-hidden">
-              <img src={activationSales} alt="Sales meetings" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <img src={activationSales} alt="Brand presentation during a sales meeting" width={1024} height={1024} loading="lazy" decoding="async" sizes="100vw" className="absolute inset-0 h-full w-full object-cover" />
               <figcaption className="absolute bottom-4 left-4 text-eyebrow bg-background text-foreground px-3 py-1">Sales meetings</figcaption>
             </figure>
           </div>
 
           <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-eyebrow text-background/60">
             <li>Retail activation</li>
-            <li className="text-accent">/</li>
+            <li aria-hidden="true" className="text-accent">/</li>
             <li>Product testing</li>
-            <li className="text-accent">/</li>
+            <li aria-hidden="true" className="text-accent">/</li>
             <li>Field marketing</li>
-            <li className="text-accent">/</li>
+            <li aria-hidden="true" className="text-accent">/</li>
             <li>Sales meetings</li>
-            <li className="text-accent">/</li>
+            <li aria-hidden="true" className="text-accent">/</li>
             <li>Community events</li>
           </ul>
         </div>
       </section>
 
       {/* ABOUT PREVIEW */}
-      <section className="py-24 md:py-32 px-6 md:px-10 max-w-[1600px] mx-auto">
+      <section className="section-space mx-auto max-w-[1600px] px-6 md:px-10">
         <div className="grid md:grid-cols-12 gap-10 items-end">
           <div className="md:col-span-8">
             <div className="text-eyebrow text-accent mb-6">— About</div>
-            <h2 className="text-display text-5xl md:text-7xl lg:text-8xl">
+            <h2 className="text-display section-title">
               CONNECTING BRANDS
               <br />
               AND <span className="text-accent">MARKETS.</span>

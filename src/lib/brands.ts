@@ -10,6 +10,7 @@ export type Brand = {
   name: string;
   category: string;
   image: string;
+  imageAlt: string;
   description: string;
   origin: string;
 };
@@ -20,6 +21,7 @@ export const brands: Brand[] = [
     name: "Berghaus",
     category: "Outdoor Performance",
     image: berghaus,
+    imageAlt: "Hiker wearing a technical shell on a rocky mountain ridge",
     origin: "United Kingdom",
     description:
       "Technical outdoor apparel and equipment engineered for mountain athletes and serious adventurers since 1966.",
@@ -29,6 +31,7 @@ export const brands: Brand[] = [
     name: "Katin",
     category: "California Lifestyle",
     image: katin,
+    imageAlt: "Surfer walking along the shoreline with a surfboard",
     origin: "California, USA",
     description:
       "An authentic Southern California surf brand crafting boardshorts and lifestyle apparel since 1954.",
@@ -38,6 +41,7 @@ export const brands: Brand[] = [
     name: "Nalgene",
     category: "Hydration & Outdoor",
     image: nalgene,
+    imageAlt: "Reusable Nalgene bottle beside outdoor hiking gear",
     origin: "New York, USA",
     description:
       "Iconic, virtually indestructible bottles trusted by hikers, climbers and travelers worldwide.",
@@ -47,6 +51,7 @@ export const brands: Brand[] = [
     name: "PREMIVM CAPS",
     category: "Custom Headwear",
     image: premivm,
+    imageAlt: "Premium custom caps arranged for an outdoor lifestyle shoot",
     origin: "Europe",
     description:
       "Premium custom headwear built for teams, brands and culture. Quality first. Built to last.",
@@ -56,6 +61,7 @@ export const brands: Brand[] = [
     name: "Salomon Snowboards",
     category: "Snowboard Equipment",
     image: salomon,
+    imageAlt: "Snowboarder riding through deep mountain snow",
     origin: "France",
     description:
       "Boards, boots and bindings engineered by riders, for riders. Performance in every condition.",
@@ -65,6 +71,7 @@ export const brands: Brand[] = [
     name: "McDavid",
     category: "Sports Protection",
     image: mcdavid,
+    imageAlt: "Athlete wearing protective sports equipment during training",
     origin: "Illinois, USA",
     description:
       "Protective sports equipment trusted by professional athletes for nearly six decades.",
