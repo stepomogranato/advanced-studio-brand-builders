@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { brands, getBrand } from "@/lib/brands";
 
-export const Route = createFileRoute("/brands/$slug")({
+export const Route = createFileRoute("/brands_/$slug")({
   loader: ({ params }) => {
     const brand = getBrand(params.slug);
     if (!brand) throw notFound();

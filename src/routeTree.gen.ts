@@ -42,7 +42,7 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const BrandsSlugRoute = BrandsSlugRouteImport.update({
-  id: '/brands/$slug',
+  id: '/brands_/$slug',
   path: '/brands/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
@@ -70,7 +70,7 @@ export interface FileRoutesById {
   '/brands': typeof BrandsRoute
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/brands/$slug': typeof BrandsSlugRoute
+  '/brands_/$slug': typeof BrandsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,7 +90,7 @@ export interface FileRouteTypes {
     | '/brands'
     | '/contact'
     | '/sitemap.xml'
-    | '/brands/$slug'
+    | '/brands_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -139,8 +139,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/brands/$slug': {
-      id: '/brands/$slug'
+    '/brands_/$slug': {
+      id: '/brands_/$slug'
       path: '/brands/$slug'
       fullPath: '/brands/$slug'
       preLoaderRoute: typeof BrandsSlugRouteImport
