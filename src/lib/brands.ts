@@ -13,6 +13,13 @@ export type Brand = {
   imageAlt: string;
   description: string;
   origin: string;
+  statement: string;
+  overview: string;
+  editorial: {
+    label: string;
+    title: string;
+    body: string;
+  }[];
 };
 
 export const brands: Brand[] = [
@@ -24,7 +31,15 @@ export const brands: Brand[] = [
     imageAlt: "Hiker wearing a technical shell on a rocky mountain ridge",
     origin: "United Kingdom",
     description:
-      "Technical outdoor apparel and equipment engineered for mountain athletes and serious adventurers since 1966.",
+      "Placeholder introduction for Berghaus and its outdoor performance positioning.",
+    statement: "BUILT FOR THE OUTSIDE.",
+    overview:
+      "Placeholder copy for the Berghaus partnership, market direction and future brand story.",
+    editorial: [
+      { label: "Positioning", title: "Mountain utility", body: "Placeholder copy for product positioning and brand expression." },
+      { label: "Market", title: "Outdoor culture", body: "Placeholder copy for retail, audience and market development." },
+      { label: "Activation", title: "In the field", body: "Placeholder copy for community, events and campaign activity." },
+    ],
   },
   {
     slug: "katin",
@@ -34,7 +49,15 @@ export const brands: Brand[] = [
     imageAlt: "Surfer walking along the shoreline with a surfboard",
     origin: "California, USA",
     description:
-      "An authentic Southern California surf brand crafting boardshorts and lifestyle apparel since 1954.",
+      "Placeholder introduction for Katin and its California lifestyle positioning.",
+    statement: "CALIFORNIA, EVERY DAY.",
+    overview:
+      "Placeholder copy for the Katin partnership, market direction and future brand story.",
+    editorial: [
+      { label: "Positioning", title: "Coastal heritage", body: "Placeholder copy for product positioning and brand expression." },
+      { label: "Market", title: "Life by the water", body: "Placeholder copy for retail, audience and market development." },
+      { label: "Activation", title: "Community first", body: "Placeholder copy for community, events and campaign activity." },
+    ],
   },
   {
     slug: "nalgene",
@@ -44,7 +67,15 @@ export const brands: Brand[] = [
     imageAlt: "Reusable Nalgene bottle beside outdoor hiking gear",
     origin: "New York, USA",
     description:
-      "Iconic, virtually indestructible bottles trusted by hikers, climbers and travelers worldwide.",
+      "Placeholder introduction for Nalgene and its hydration and outdoor positioning.",
+    statement: "MADE TO GO ANYWHERE.",
+    overview:
+      "Placeholder copy for the Nalgene partnership, market direction and future brand story.",
+    editorial: [
+      { label: "Positioning", title: "Everyday utility", body: "Placeholder copy for product positioning and brand expression." },
+      { label: "Market", title: "Beyond the trail", body: "Placeholder copy for retail, audience and market development." },
+      { label: "Activation", title: "Refill culture", body: "Placeholder copy for community, events and campaign activity." },
+    ],
   },
   {
     slug: "premivm-caps",
@@ -54,7 +85,15 @@ export const brands: Brand[] = [
     imageAlt: "Premium custom caps arranged for an outdoor lifestyle shoot",
     origin: "Europe",
     description:
-      "Premium custom headwear built for teams, brands and culture. Quality first. Built to last.",
+      "Placeholder introduction for PREMIVM CAPS and its custom headwear positioning.",
+    statement: "HEADWEAR, MADE PERSONAL.",
+    overview:
+      "Placeholder copy for the PREMIVM CAPS partnership, market direction and future brand story.",
+    editorial: [
+      { label: "Positioning", title: "Custom by design", body: "Placeholder copy for product positioning and brand expression." },
+      { label: "Market", title: "Teams and culture", body: "Placeholder copy for retail, audience and market development." },
+      { label: "Activation", title: "Made to represent", body: "Placeholder copy for community, events and campaign activity." },
+    ],
   },
   {
     slug: "salomon-snowboards",
@@ -64,7 +103,15 @@ export const brands: Brand[] = [
     imageAlt: "Snowboarder riding through deep mountain snow",
     origin: "France",
     description:
-      "Boards, boots and bindings engineered by riders, for riders. Performance in every condition.",
+      "Placeholder introduction for Salomon Snowboards and its snowboard performance positioning.",
+    statement: "RIDE THE WHOLE MOUNTAIN.",
+    overview:
+      "Placeholder copy for the Salomon Snowboards partnership, market direction and future brand story.",
+    editorial: [
+      { label: "Positioning", title: "Rider driven", body: "Placeholder copy for product positioning and brand expression." },
+      { label: "Market", title: "Mountain community", body: "Placeholder copy for retail, audience and market development." },
+      { label: "Activation", title: "On snow", body: "Placeholder copy for community, events and campaign activity." },
+    ],
   },
   {
     slug: "mcdavid",
@@ -74,7 +121,15 @@ export const brands: Brand[] = [
     imageAlt: "Athlete wearing protective sports equipment during training",
     origin: "Illinois, USA",
     description:
-      "Protective sports equipment trusted by professional athletes for nearly six decades.",
+      "Placeholder introduction for McDavid and its sports protection positioning.",
+    statement: "PROTECTION IN MOTION.",
+    overview:
+      "Placeholder copy for the McDavid partnership, market direction and future brand story.",
+    editorial: [
+      { label: "Positioning", title: "Ready to perform", body: "Placeholder copy for product positioning and brand expression." },
+      { label: "Market", title: "Across sport", body: "Placeholder copy for retail, audience and market development." },
+      { label: "Activation", title: "Athlete tested", body: "Placeholder copy for community, events and campaign activity." },
+    ],
   },
 ];
 

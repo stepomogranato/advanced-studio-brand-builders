@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import aboutHero from "@/assets/about-hero.jpg";
+import activationField from "@/assets/activation-field.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — Advanced Studio" },
-      { name: "description", content: "Advanced Studio develops and distributes active, outdoor and sportswear brands through sales networks, market development and marketing activities." },
+      { name: "description", content: "Advanced Studio builds sales networks, develops markets, manages brands and creates marketing activations." },
       { property: "og:title", content: "About — Advanced Studio" },
       { property: "og:description", content: "Connecting brands and markets." },
       { property: "og:image", content: aboutHero },
@@ -18,17 +19,22 @@ const pillars = [
   {
     n: "01",
     title: "Sales Networks",
-    body: "We build and manage retail and wholesale networks tailored to each brand's positioning across specialty, sport and lifestyle channels.",
+    body: "Retail and wholesale relationships built around the right channels, partners and territories.",
   },
   {
     n: "02",
     title: "Market Development",
-    body: "Long-term commercial strategy: market entry, channel architecture, pricing, and category growth across European territories.",
+    body: "Focused market entry, category growth and long-term commercial direction.",
   },
   {
     n: "03",
-    title: "Brand Support",
-    body: "Trade marketing, retail activation, content, events and ambassadors — turning product into culture and culture into community.",
+    title: "Brand Management",
+    body: "Consistent positioning, sales strategy and day-to-day stewardship across every touchpoint.",
+  },
+  {
+    n: "04",
+    title: "Marketing Activations",
+    body: "Retail, field and community experiences that move brands from product to participation.",
   },
 ];
 
@@ -56,14 +62,31 @@ function About() {
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-4 text-eyebrow text-accent">— What we do</div>
           <div className="md:col-span-8">
-            <p className="text-display text-3xl md:text-5xl leading-[1.05]">
-              Advanced Studio develops and distributes active, outdoor and sportswear brands through{" "}
-              <span className="text-accent">sales networks</span>,{" "}
-              <span className="text-accent">market development</span> and{" "}
-              <span className="text-accent">marketing activities</span>.
+            <p className="text-display text-[clamp(2.5rem,5vw,5rem)] leading-[1.02]">
+              We connect brands with the <span className="text-accent">markets</span>, people and experiences that build lasting growth.
             </p>
           </div>
         </div>
+      </section>
+
+      {/* EDITORIAL IMAGE */}
+      <section className="px-6 md:px-10">
+        <figure className="relative mx-auto aspect-[4/5] max-w-[1600px] overflow-hidden md:aspect-[16/9]">
+          <img
+            src={activationField}
+            alt="Outdoor field marketing activation"
+            width={1024}
+            height={1024}
+            loading="lazy"
+            decoding="async"
+            sizes="100vw"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+          <figcaption className="absolute bottom-6 left-6 text-eyebrow text-[#F7F4EE] md:bottom-10 md:left-10">
+            Strategy in the market. Energy in the field.
+          </figcaption>
+        </figure>
       </section>
 
       {/* PILLARS */}
@@ -72,11 +95,11 @@ function About() {
           {pillars.map((p, i) => (
             <div
               key={p.n}
-              className={`grid md:grid-cols-12 gap-10 px-6 md:px-10 py-16 md:py-24 ${i !== pillars.length - 1 ? "border-b border-border" : ""}`}
+              className={`grid gap-8 px-6 py-14 md:grid-cols-12 md:gap-10 md:px-10 md:py-20 ${i !== pillars.length - 1 ? "border-b border-border" : ""}`}
             >
               <div className="md:col-span-2 text-display text-5xl text-accent">{p.n}</div>
               <div className="md:col-span-5">
-                <h2 className="text-display text-4xl md:text-6xl">{p.title}</h2>
+                <h2 className="text-display text-[clamp(2.5rem,5vw,5rem)]">{p.title}</h2>
               </div>
               <div className="md:col-span-5 self-end">
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-md">{p.body}</p>
@@ -89,8 +112,8 @@ function About() {
       {/* CTA */}
       <section className="px-6 md:px-10 py-24">
         <div className="max-w-[1600px] mx-auto flex flex-wrap items-end justify-between gap-8">
-          <h2 className="text-display text-4xl md:text-6xl max-w-2xl">
-            Let's grow your brand together.
+          <h2 className="text-display max-w-3xl text-[clamp(2.75rem,5vw,5rem)]">
+            BUILD THE MARKET. GROW THE BRAND.
           </h2>
           <Link to="/contact" className="text-eyebrow bg-accent text-background px-8 py-5 hover:bg-accent-dark transition">
             Start a conversation →
