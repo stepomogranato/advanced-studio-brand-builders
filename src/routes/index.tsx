@@ -84,9 +84,9 @@ function Home() {
               Distribution is only the beginning.
             </h2>
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              We believe distribution is only one part of building a successful brand. Markets are
-              built through relationships, credibility, education, field presence and long-term
-              thinking.
+              Distribution is only one piece of the puzzle. Real markets are built through
+              relationships, credibility, education, field presence and long-term thinking. We help
+              brands build ecosystems that create lasting demand.
             </p>
           </div>
         </div>
@@ -103,6 +103,10 @@ function Home() {
             <h2 id="brands-heading" className="text-display section-title">
               OUR BRANDS
             </h2>
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              We work with a carefully selected portfolio of brands we genuinely believe in. Every
+              partnership is built for long-term market development rather than simple distribution.
+            </p>
           </div>
         </div>
 
@@ -151,7 +155,8 @@ function Home() {
               </h2>
             </div>
             <p className="max-w-md text-base leading-relaxed text-background/70 md:col-span-4">
-              From sales networks to activations, we build brands where markets actually move.
+              Markets are built where people meet products. Everything we do in the field exists to
+              create trust, knowledge and long-term relationships.
             </p>
           </div>
 
@@ -168,7 +173,7 @@ function Home() {
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
               <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Retail
+                Presence
               </figcaption>
             </figure>
             <figure className="relative col-span-6 aspect-[4/5] overflow-hidden md:col-span-5">
@@ -183,7 +188,7 @@ function Home() {
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
               <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Events
+                Relationships
               </figcaption>
             </figure>
             <figure className="relative col-span-6 aspect-[4/5] overflow-hidden md:col-span-4">
@@ -198,7 +203,7 @@ function Home() {
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
               <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Product tests
+                Credibility
               </figcaption>
             </figure>
             <figure className="relative col-span-12 aspect-[16/9] overflow-hidden md:col-span-8">
@@ -213,7 +218,7 @@ function Home() {
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
               <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Field activations
+                Education
               </figcaption>
             </figure>
             <figure className="relative col-span-12 aspect-[16/10] overflow-hidden sm:aspect-[21/9]">
@@ -228,7 +233,7 @@ function Home() {
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
               <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Market entry
+                Presence
               </figcaption>
             </figure>
           </div>
