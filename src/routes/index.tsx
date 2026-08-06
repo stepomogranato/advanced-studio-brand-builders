@@ -246,18 +246,23 @@ function Home() {
 
           <div className="mt-10 grid gap-6 text-background md:grid-cols-3">
             <a
-              href="mailto:hello@advancedstudio.com"
+              href="mailto:info@advancedstudio.eu"
               className="group border-t border-background/30 pt-5 transition-colors hover:text-foreground focus-visible:text-foreground"
             >
               <span className="text-eyebrow opacity-70">Email</span>
               <span className="mt-3 block break-words text-display text-2xl md:text-3xl">
-                hello@advancedstudio.com
+                info@advancedstudio.eu
               </span>
             </a>
-            <div className="border-t border-background/30 pt-5 text-background/75">
+            <a
+              href="https://www.linkedin.com/company/advanced-studio"
+              target="_blank"
+              rel="noreferrer"
+              className="group border-t border-background/30 pt-5 transition-colors hover:text-foreground focus-visible:text-foreground"
+            >
               <span className="text-eyebrow opacity-70">LinkedIn</span>
               <span className="mt-3 block text-display text-2xl md:text-3xl">LinkedIn</span>
-            </div>
+            </a>
             <div className="border-t border-background/30 pt-5 text-background/75">
               <span className="text-eyebrow opacity-70">Location</span>
               <span className="mt-3 block text-display text-2xl md:text-3xl">
