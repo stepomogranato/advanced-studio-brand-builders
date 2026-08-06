@@ -3,7 +3,6 @@ import heroImg from "@/assets/hero.jpg";
 import activationRetail from "@/assets/activation-retail.jpg";
 import activationTesting from "@/assets/activation-testing.jpg";
 import activationField from "@/assets/activation-field.jpg";
-import activationSales from "@/assets/activation-sales.jpg";
 import activationCommunity from "@/assets/activation-community.jpg";
 import { brands } from "@/lib/brands";
 
@@ -151,7 +150,7 @@ function Home() {
             <div className="md:col-span-8">
               <div className="text-eyebrow text-accent mb-6">— In The Field</div>
               <h2 id="field-heading" className="text-display section-title">
-                IN THE FIELD
+                HOW WE CREATE ECOSYSTEMS
               </h2>
             </div>
             <p className="max-w-md text-base leading-relaxed text-background/70 md:col-span-4">
@@ -160,8 +159,8 @@ function Home() {
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-12 gap-3 sm:mt-12 md:gap-4 lg:mt-14">
-            <figure className="relative col-span-12 aspect-[16/10] overflow-hidden md:col-span-7">
+          <div className="mt-10 grid grid-cols-1 gap-3 sm:mt-12 md:grid-cols-2 md:gap-4 lg:mt-14">
+            <figure className="relative aspect-[4/3] overflow-hidden">
               <img
                 src={activationRetail}
                 alt="Retail activation display in a specialty store"
@@ -169,29 +168,14 @@ function Home() {
                 height={1024}
                 loading="lazy"
                 decoding="async"
-                sizes="(min-width: 768px) 58vw, 100vw"
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
               <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Presence
+                MARKET ENTRY
               </figcaption>
             </figure>
-            <figure className="relative col-span-6 aspect-[4/5] overflow-hidden md:col-span-5">
-              <img
-                src={activationCommunity}
-                alt="Outdoor community event with brand participants"
-                width={1024}
-                height={1024}
-                loading="lazy"
-                decoding="async"
-                sizes="(min-width: 768px) 42vw, 50vw"
-                className="absolute inset-0 h-full w-full object-cover object-center"
-              />
-              <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Relationships
-              </figcaption>
-            </figure>
-            <figure className="relative col-span-6 aspect-[4/5] overflow-hidden md:col-span-4">
+            <figure className="relative aspect-[4/3] overflow-hidden">
               <img
                 src={activationTesting}
                 alt="Athletes testing products outdoors"
@@ -199,14 +183,14 @@ function Home() {
                 height={1024}
                 loading="lazy"
                 decoding="async"
-                sizes="(min-width: 768px) 33vw, 50vw"
-                className="absolute inset-0 h-full w-full object-cover object-center"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="absolute inset-0 h-full w-full object-cover object-[50%_42%]"
               />
               <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Credibility
+                RETAIL
               </figcaption>
             </figure>
-            <figure className="relative col-span-12 aspect-[16/9] overflow-hidden md:col-span-8">
+            <figure className="relative aspect-[4/3] overflow-hidden">
               <img
                 src={activationField}
                 alt="Field marketing team at an outdoor activation"
@@ -214,26 +198,26 @@ function Home() {
                 height={1024}
                 loading="lazy"
                 decoding="async"
-                sizes="(min-width: 768px) 67vw, 100vw"
-                className="absolute inset-0 h-full w-full object-cover object-center"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="absolute inset-0 h-full w-full object-cover object-[50%_45%]"
               />
               <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Education
+                FIELD PRESENCE
               </figcaption>
             </figure>
-            <figure className="relative col-span-12 aspect-[16/10] overflow-hidden sm:aspect-[21/9]">
+            <figure className="relative aspect-[4/3] overflow-hidden">
               <img
-                src={activationSales}
-                alt="Brand presentation during a sales meeting"
+                src={activationCommunity}
+                alt="Outdoor community event with brand participants"
                 width={1024}
                 height={1024}
                 loading="lazy"
                 decoding="async"
-                sizes="100vw"
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
               <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Presence
+                RELATIONSHIPS
               </figcaption>
             </figure>
           </div>
