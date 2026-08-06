@@ -71,7 +71,7 @@ function Home() {
 
       <section
         aria-labelledby="statement-heading"
-        className="content-auto mt-24 bg-foreground px-6 py-32 text-background md:mt-32 md:px-10 md:py-44 lg:mt-40 lg:py-56"
+        className="content-auto bg-foreground px-6 pb-32 pt-16 text-background md:px-10 md:pb-44 md:pt-20 lg:pb-56 lg:pt-24"
       >
         <div className="mx-auto grid max-w-[1600px] gap-16 md:grid-cols-12 md:gap-16">
           <div className="text-eyebrow text-accent md:col-span-3">MANIFESTO</div>
