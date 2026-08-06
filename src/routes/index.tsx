@@ -49,7 +49,7 @@ function Home() {
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-black/50"
         />
-        <div className="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col justify-end px-6 pb-20 pt-28 sm:pb-24 md:px-10 md:pb-28 lg:pb-36">
+        <div className="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col justify-end px-6 pb-12 pt-28 sm:pb-16 md:px-10 md:pb-20 lg:pb-24">
           <div className="text-eyebrow mb-6 max-w-2xl text-[#F7F4EE]/90 sm:mb-8 md:mb-10">
             <span aria-hidden="true" className="text-accent">
               ●
@@ -72,20 +72,21 @@ function Home() {
 
       <section
         aria-labelledby="statement-heading"
-        className="content-auto mx-auto max-w-[1600px] px-6 py-24 md:px-10 md:py-36 lg:py-44"
+        className="content-auto mx-auto max-w-[1600px] px-6 py-16 md:px-10 md:py-20 lg:py-24"
       >
-        <div className="grid gap-10 md:grid-cols-12 md:gap-12">
-          <div className="text-eyebrow text-accent md:col-span-3">— What we do</div>
-          <div className="md:col-span-9">
+        <div className="grid gap-8 md:grid-cols-12 md:gap-12">
+          <div className="text-eyebrow text-accent md:col-span-3">MANIFESTO</div>
+          <div className="md:col-span-8">
             <h2
               id="statement-heading"
-              className="text-display max-w-5xl text-[clamp(3rem,7vw,7rem)]"
+              className="text-display max-w-4xl text-[clamp(2.75rem,5.8vw,5.75rem)]"
             >
-              WE DON&apos;T SIMPLY DISTRIBUTE BRANDS.
+              Distribution is only the beginning.
             </h2>
-            <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              We develop markets, create relationships and help ambitious brands build a lasting
-              presence across Southern Europe.
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              We believe distribution is only one part of building a successful brand. Markets are
+              built through relationships, credibility, education, field presence and long-term
+              thinking.
             </p>
           </div>
         </div>
@@ -94,7 +95,7 @@ function Home() {
       <section
         id="brands"
         aria-labelledby="brands-heading"
-        className="content-auto scroll-mt-24 mx-auto max-w-[1600px] px-6 py-28 md:px-10 md:py-40 lg:py-48"
+        className="content-auto scroll-mt-24 mx-auto max-w-[1600px] px-6 py-24 md:px-10 md:py-32 lg:py-40"
       >
         <div className="mb-14 md:mb-20">
           <div className="md:col-span-7">
@@ -139,12 +140,12 @@ function Home() {
       <section
         id="in-the-field"
         aria-labelledby="field-heading"
-        className="section-space content-auto scroll-mt-24 bg-foreground text-background"
+        className="content-auto scroll-mt-24 bg-foreground py-24 text-background md:py-32 lg:py-40"
       >
         <div className="mx-auto max-w-[1600px] px-6 md:px-10">
           <div className="grid gap-8 md:grid-cols-12 md:items-end md:gap-10">
             <div className="md:col-span-8">
-              <div className="text-eyebrow text-accent mb-6">— Capabilities</div>
+              <div className="text-eyebrow text-accent mb-6">— In The Field</div>
               <h2 id="field-heading" className="text-display section-title">
                 IN THE FIELD
               </h2>
@@ -154,15 +155,7 @@ function Home() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-4 border-y border-background/15 py-8 text-background/65 md:grid-cols-4">
-            {["01 MARKET ENTRY", "02 RETAIL", "03 FIELD ACTIVATIONS", "04 EVENTS"].map((label) => (
-              <div key={label} className="text-eyebrow">
-                {label}
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 grid grid-cols-12 gap-3 sm:mt-12 md:mt-16 md:gap-4">
+          <div className="mt-10 grid grid-cols-12 gap-3 sm:mt-12 md:gap-4 lg:mt-14">
             <figure className="relative col-span-12 aspect-[16/10] overflow-hidden md:col-span-7">
               <img
                 src={activationRetail}
@@ -174,7 +167,7 @@ function Home() {
                 sizes="(min-width: 768px) 58vw, 100vw"
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
-              <figcaption className="absolute bottom-3 left-3 bg-background px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
+              <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
                 Retail
               </figcaption>
             </figure>
@@ -189,7 +182,7 @@ function Home() {
                 sizes="(min-width: 768px) 42vw, 50vw"
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
-              <figcaption className="absolute bottom-3 left-3 bg-background px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
+              <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
                 Events
               </figcaption>
             </figure>
@@ -204,7 +197,7 @@ function Home() {
                 sizes="(min-width: 768px) 33vw, 50vw"
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
-              <figcaption className="absolute bottom-3 left-3 bg-background px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
+              <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
                 Product tests
               </figcaption>
             </figure>
@@ -219,7 +212,7 @@ function Home() {
                 sizes="(min-width: 768px) 67vw, 100vw"
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
-              <figcaption className="absolute bottom-3 left-3 bg-background px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
+              <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
                 Field activations
               </figcaption>
             </figure>
@@ -234,7 +227,7 @@ function Home() {
                 sizes="100vw"
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
-              <figcaption className="absolute bottom-3 left-3 bg-background px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
+              <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
                 Market entry
               </figcaption>
             </figure>
@@ -245,7 +238,7 @@ function Home() {
       <section
         id="contact"
         aria-labelledby="contact-heading"
-        className="content-auto scroll-mt-24 px-6 py-16 md:px-10 md:py-20"
+        className="content-auto scroll-mt-24 px-6 py-14 md:px-10 md:py-18"
       >
         <div className="relative mx-auto max-w-[1600px] overflow-hidden bg-accent p-8 text-background sm:p-10 md:p-12 lg:p-14">
           <div className="text-eyebrow mb-6 opacity-80">— Contact</div>
@@ -268,15 +261,16 @@ function Home() {
             </a>
             <div className="border-t border-background/30 pt-5 text-background/75">
               <span className="text-eyebrow opacity-70">LinkedIn</span>
-              <span className="mt-3 block text-display text-2xl md:text-3xl">Coming soon</span>
+              <span className="mt-3 block text-display text-2xl md:text-3xl">LinkedIn</span>
             </div>
-            <a
-              href="tel:+390000000000"
-              className="group border-t border-background/30 pt-5 transition-colors hover:text-foreground focus-visible:text-foreground"
-            >
-              <span className="text-eyebrow opacity-70">Phone</span>
-              <span className="mt-3 block text-display text-2xl md:text-3xl">+39 000 000 0000</span>
-            </a>
+            <div className="border-t border-background/30 pt-5 text-background/75">
+              <span className="text-eyebrow opacity-70">Location</span>
+              <span className="mt-3 block text-display text-2xl md:text-3xl">
+                MILAN
+                <br />
+                ITALY
+              </span>
+            </div>
           </div>
         </div>
       </section>
