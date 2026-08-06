@@ -1,18 +1,15 @@
-import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 const links = [
-  { to: "/about", label: "About" },
-  { to: "/brands", label: "Brands" },
-  { to: "/contact", label: "Contact" },
+  { href: "#brands", label: "Brands" },
+  { href: "#in-the-field", label: "In The Field" },
+  { href: "#contact", label: "Contact" },
 ] as const;
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const pathname = useRouterState({ select: (state) => state.location.pathname });
-  const sitsOverHero = pathname === "/" || pathname === "/about" || pathname.startsWith("/brands/");
-  const lightText = sitsOverHero && !scrolled && !open;
+  const lightText = !scrolled && !open;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -20,10 +17,6 @@ export function SiteNav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     if (!open) return;
@@ -40,32 +33,40 @@ export function SiteNav() {
     };
   }, [open]);
 
+  const closeMenu = () => setOpen(false);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open ? "border-b border-border bg-background/95 text-foreground backdrop-blur" : `bg-transparent ${lightText ? "text-[#F7F4EE]" : "text-foreground"}`
+        scrolled || open
+          ? "border-b border-border bg-background/95 text-foreground backdrop-blur"
+          : `bg-transparent ${lightText ? "text-[#F7F4EE]" : "text-foreground"}`
       }`}
     >
       <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-10">
-        <Link to="/" aria-label="Advanced Studio home" className="text-display text-[15px] tracking-tight">
+        <a
+          href="#top"
+          onClick={closeMenu}
+          aria-label="Advanced Studio home"
+          className="text-display text-[15px] tracking-tight"
+        >
           ADVANCED <span className="text-accent">STUDIO</span>
-        </Link>
+        </a>
 
         <nav aria-label="Primary navigation" className="hidden items-center gap-10 md:flex">
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
               className="text-eyebrow transition-colors hover:text-accent focus-visible:text-accent"
-              activeProps={{ className: "text-eyebrow text-accent" }}
             >
-              {l.label}
-            </Link>
+              {link.label}
+            </a>
           ))}
         </nav>
 
         <button
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpen((value) => !value)}
           className="min-h-11 min-w-11 text-eyebrow md:hidden"
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
@@ -76,18 +77,20 @@ export function SiteNav() {
       </div>
 
       {open && (
-        <div id="mobile-navigation" className="min-h-[calc(100dvh-69px)] border-t border-border bg-background md:hidden">
+        <div
+          id="mobile-navigation"
+          className="min-h-[calc(100dvh-69px)] border-t border-border bg-background md:hidden"
+        >
           <nav aria-label="Mobile navigation" className="flex flex-col gap-5 px-6 py-8">
-            {links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                onClick={() => setOpen(false)}
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
                 className="text-display py-2 text-3xl transition-colors hover:text-accent focus-visible:text-accent"
-                activeProps={{ className: "text-display py-2 text-3xl text-accent" }}
               >
-                {l.label}
-              </Link>
+                {link.label}
+              </a>
             ))}
           </nav>
         </div>
