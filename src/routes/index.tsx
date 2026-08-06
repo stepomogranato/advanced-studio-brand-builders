@@ -71,22 +71,26 @@ function Home() {
 
       <section
         aria-labelledby="statement-heading"
-        className="content-auto mx-auto max-w-[1600px] px-6 py-16 md:px-10 md:py-20 lg:py-24"
+        className="content-auto mt-24 bg-foreground px-6 py-32 text-background md:mt-32 md:px-10 md:py-44 lg:mt-40 lg:py-56"
       >
-        <div className="grid gap-8 md:grid-cols-12 md:gap-12">
+        <div className="mx-auto grid max-w-[1600px] gap-12 md:grid-cols-12 md:gap-12">
           <div className="text-eyebrow text-accent md:col-span-3">MANIFESTO</div>
-          <div className="md:col-span-8">
+          <div className="md:col-span-9">
             <h2
               id="statement-heading"
-              className="text-display max-w-4xl text-[clamp(2.75rem,5.8vw,5.75rem)]"
+              className="text-display max-w-6xl text-[clamp(3.5rem,8vw,8rem)]"
             >
-              Distribution is only the beginning.
+              WE DON&apos;T BUILD DISTRIBUTION.
+              <br />
+              WE BUILD <span className="text-accent">ECOSYSTEMS.</span>
             </h2>
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Distribution is only one piece of the puzzle. Real markets are built through
-              relationships, credibility, education, field presence and long-term thinking. We help
-              brands build ecosystems that create lasting demand.
-            </p>
+            <div className="mt-12 max-w-2xl space-y-6 text-base leading-relaxed text-background/70 md:text-lg">
+              <p>
+                Distribution is only one piece of the puzzle. Real markets are built through
+                relationships, credibility, education, field presence and long-term thinking.
+              </p>
+              <p>We help ambitious brands build ecosystems that create lasting value.</p>
+            </div>
           </div>
         </div>
       </section>
