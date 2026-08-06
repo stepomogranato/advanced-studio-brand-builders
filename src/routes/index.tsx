@@ -73,23 +73,25 @@ function Home() {
         aria-labelledby="statement-heading"
         className="content-auto mt-24 bg-foreground px-6 py-32 text-background md:mt-32 md:px-10 md:py-44 lg:mt-40 lg:py-56"
       >
-        <div className="mx-auto grid max-w-[1600px] gap-12 md:grid-cols-12 md:gap-12">
+        <div className="mx-auto grid max-w-[1600px] gap-16 md:grid-cols-12 md:gap-16">
           <div className="text-eyebrow text-accent md:col-span-3">MANIFESTO</div>
           <div className="md:col-span-9">
             <h2
               id="statement-heading"
               className="text-display max-w-6xl text-[clamp(3.5rem,8vw,8rem)]"
             >
-              WE DON&apos;T BUILD DISTRIBUTION.
-              <br />
-              WE BUILD <span className="text-accent">ECOSYSTEMS.</span>
+              <span className="block">WE DON&apos;T BUILD DISTRIBUTION.</span>
+              <span className="mt-4 block">
+                WE BUILD <span className="text-accent">ECOSYSTEMS.</span>
+              </span>
             </h2>
-            <div className="mt-12 max-w-2xl space-y-6 text-base leading-relaxed text-background/70 md:text-lg">
+            <div className="mt-16 max-w-2xl space-y-6 text-base leading-relaxed text-background/70 md:text-lg">
+              <p>Distribution is only one layer of a much bigger system.</p>
               <p>
-                Distribution is only one piece of the puzzle. Real markets are built through
-                relationships, credibility, education, field presence and long-term thinking.
+                Strong brands are built through trust, education, relationships, cultural relevance
+                and long-term thinking.
               </p>
-              <p>We help ambitious brands build ecosystems that create lasting value.</p>
+              <p>Our role is to design that ecosystem.</p>
             </div>
           </div>
         </div>
@@ -152,7 +154,7 @@ function Home() {
         <div className="mx-auto max-w-[1600px] px-6 md:px-10">
           <div className="grid gap-8 md:grid-cols-12 md:items-end md:gap-10">
             <div className="md:col-span-8">
-              <div className="text-eyebrow text-accent mb-6">— In The Field</div>
+              <div className="text-eyebrow text-accent mb-6">— Ecosystem Approach</div>
               <h2 id="field-heading" className="text-display section-title">
                 HOW WE CREATE ECOSYSTEMS
               </h2>

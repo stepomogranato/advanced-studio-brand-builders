@@ -5,10 +5,10 @@ export function SiteFooter() {
         <div>
           <div className="text-foreground">ADVANCED STUDIO</div>
           <div className="mt-2">Independent Brand Ecosystem Builder</div>
-          <div className="mt-3 text-display text-3xl leading-none text-foreground md:text-5xl">
-            WE DON&apos;T BUILD DISTRIBUTION.
+          <div className="mt-5 text-sm leading-relaxed text-muted-foreground md:text-base">
+            Building brands.
             <br />
-            WE BUILD ECOSYSTEMS.
+            Creating ecosystems.
           </div>
         </div>
         <div>MILAN • ITALY</div>
