@@ -11,7 +11,6 @@ export type Brand = {
   category: string;
   image: string;
   imageAlt: string;
-  origin: string;
 };
 
 export const brands: Brand[] = [
@@ -21,7 +20,6 @@ export const brands: Brand[] = [
     category: "Outdoor Performance",
     image: berghaus,
     imageAlt: "Hiker wearing a technical shell on a rocky mountain ridge",
-    origin: "United Kingdom",
   },
   {
     slug: "katin",
@@ -29,7 +27,6 @@ export const brands: Brand[] = [
     category: "California Lifestyle",
     image: katin,
     imageAlt: "Surfer walking along the shoreline with a surfboard",
-    origin: "California, USA",
   },
   {
     slug: "nalgene",
@@ -37,7 +34,6 @@ export const brands: Brand[] = [
     category: "Hydration & Outdoor",
     image: nalgene,
     imageAlt: "Reusable Nalgene bottle beside outdoor hiking gear",
-    origin: "New York, USA",
   },
   {
     slug: "premivm-caps",
@@ -45,7 +41,6 @@ export const brands: Brand[] = [
     category: "Custom Headwear",
     image: premivm,
     imageAlt: "Premium custom caps arranged for an outdoor lifestyle shoot",
-    origin: "Europe",
   },
   {
     slug: "salomon-snowboards",
@@ -53,7 +48,6 @@ export const brands: Brand[] = [
     category: "Snowboard Equipment",
     image: salomon,
     imageAlt: "Snowboarder riding through deep mountain snow",
-    origin: "France",
   },
   {
     slug: "mcdavid",
@@ -61,6 +55,5 @@ export const brands: Brand[] = [
     category: "Sports Protection",
     image: mcdavid,
     imageAlt: "Athlete wearing protective sports equipment during training",
-    origin: "Illinois, USA",
   },
 ];

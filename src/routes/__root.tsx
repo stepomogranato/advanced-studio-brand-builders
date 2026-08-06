@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Advanced Studio" },
       {
         property: "og:description",
-        content: "Distribution • Market Development • Brand Activations",
+        content: "Active • Outdoor • Performance",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

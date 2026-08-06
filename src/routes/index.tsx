@@ -19,21 +19,12 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Advanced Studio — Building Brands. Creating Markets." },
       {
         property: "og:description",
-        content: "Distribution • Market Development • Brand Activations",
+        content: "Active • Outdoor • Performance",
       },
     ],
   }),
   component: Home,
 });
-
-const fieldSignals = [
-  "Trade shows",
-  "Retail activations",
-  "Field marketing",
-  "Product tests",
-  "Events",
-  "Market relationships",
-];
 
 function Home() {
   return (
@@ -63,7 +54,7 @@ function Home() {
             <span aria-hidden="true" className="text-accent">
               ●
             </span>
-            &nbsp;&nbsp;Distribution • Market Development • Brand Activations
+            &nbsp;&nbsp;ACTIVE • OUTDOOR • PERFORMANCE
           </div>
           <h1
             id="home-hero-title"
@@ -80,21 +71,38 @@ function Home() {
       </section>
 
       <section
+        aria-labelledby="statement-heading"
+        className="content-auto mx-auto max-w-[1600px] px-6 py-24 md:px-10 md:py-36 lg:py-44"
+      >
+        <div className="grid gap-10 md:grid-cols-12 md:gap-12">
+          <div className="text-eyebrow text-accent md:col-span-3">— What we do</div>
+          <div className="md:col-span-9">
+            <h2
+              id="statement-heading"
+              className="text-display max-w-5xl text-[clamp(3rem,7vw,7rem)]"
+            >
+              WE DON&apos;T SIMPLY DISTRIBUTE BRANDS.
+            </h2>
+            <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              We develop markets, create relationships and help ambitious brands build a lasting
+              presence across Southern Europe.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
         id="brands"
         aria-labelledby="brands-heading"
-        className="section-space content-auto scroll-mt-24 mx-auto max-w-[1600px] px-6 md:px-10"
+        className="content-auto scroll-mt-24 mx-auto max-w-[1600px] px-6 py-28 md:px-10 md:py-40 lg:py-48"
       >
-        <div className="mb-10 grid gap-6 md:mb-14 md:grid-cols-12 md:items-end md:gap-10">
+        <div className="mb-14 md:mb-20">
           <div className="md:col-span-7">
             <div className="text-eyebrow text-accent mb-4">— Brands</div>
             <h2 id="brands-heading" className="text-display section-title">
               OUR BRANDS
             </h2>
           </div>
-          <p className="max-w-md text-base leading-relaxed text-muted-foreground md:col-span-4 md:col-start-9">
-            Six active, outdoor and performance brands developed through distribution, market
-            presence and brand support.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3">
@@ -115,13 +123,12 @@ function Home() {
               />
               <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+                className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/10"
               />
               <div className="absolute inset-0 flex flex-col justify-between p-6 text-[#F7F4EE] md:p-8">
                 <div className="text-eyebrow opacity-80">{brand.category}</div>
                 <div>
-                  <h3 className="text-display text-3xl md:text-4xl">{brand.name}</h3>
-                  <p className="mt-3 text-eyebrow text-accent">{brand.origin}</p>
+                  <h3 className="text-display text-5xl md:text-6xl lg:text-7xl">{brand.name}</h3>
                 </div>
               </div>
             </article>
@@ -147,6 +154,14 @@ function Home() {
             </p>
           </div>
 
+          <div className="mt-14 grid gap-4 border-y border-background/15 py-8 text-background/65 md:grid-cols-4">
+            {["01 MARKET ENTRY", "02 RETAIL", "03 FIELD ACTIVATIONS", "04 EVENTS"].map((label) => (
+              <div key={label} className="text-eyebrow">
+                {label}
+              </div>
+            ))}
+          </div>
+
           <div className="mt-10 grid grid-cols-12 gap-3 sm:mt-12 md:mt-16 md:gap-4">
             <figure className="relative col-span-12 aspect-[16/10] overflow-hidden md:col-span-7">
               <img
@@ -160,7 +175,7 @@ function Home() {
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
               <figcaption className="absolute bottom-3 left-3 bg-background px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Retail activations
+                Retail
               </figcaption>
             </figure>
             <figure className="relative col-span-6 aspect-[4/5] overflow-hidden md:col-span-5">
@@ -205,7 +220,7 @@ function Home() {
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
               <figcaption className="absolute bottom-3 left-3 bg-background px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Field marketing
+                Field activations
               </figcaption>
             </figure>
             <figure className="relative col-span-12 aspect-[16/10] overflow-hidden sm:aspect-[21/9]">
@@ -220,34 +235,28 @@ function Home() {
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
               <figcaption className="absolute bottom-3 left-3 bg-background px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Market relationships
+                Market entry
               </figcaption>
             </figure>
           </div>
-
-          <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-eyebrow text-background/60">
-            {fieldSignals.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
         </div>
       </section>
 
       <section
         id="contact"
         aria-labelledby="contact-heading"
-        className="content-auto scroll-mt-24 px-6 py-20 md:px-10 md:py-28"
+        className="content-auto scroll-mt-24 px-6 py-16 md:px-10 md:py-20"
       >
-        <div className="relative mx-auto max-w-[1600px] overflow-hidden bg-accent p-8 text-background sm:p-10 md:p-16 lg:p-20">
-          <div className="text-eyebrow mb-8 opacity-80">— Contact</div>
+        <div className="relative mx-auto max-w-[1600px] overflow-hidden bg-accent p-8 text-background sm:p-10 md:p-12 lg:p-14">
+          <div className="text-eyebrow mb-6 opacity-80">— Contact</div>
           <h2
             id="contact-heading"
-            className="text-display max-w-4xl text-[clamp(2.75rem,7vw,6rem)]"
+            className="text-display max-w-5xl text-[clamp(2.75rem,7vw,6rem)]"
           >
-            READY TO BUILD SOMETHING BIG?
+            LET&apos;S BUILD SOMETHING TOGETHER.
           </h2>
 
-          <div className="mt-12 grid gap-6 text-background md:grid-cols-3">
+          <div className="mt-10 grid gap-6 text-background md:grid-cols-3">
             <a
               href="mailto:hello@advancedstudio.com"
               className="group border-t border-background/30 pt-5 transition-colors hover:text-foreground focus-visible:text-foreground"
