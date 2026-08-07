@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-salomon-carve.jpg";
-import activationRetail from "@/assets/activation-retail.jpg";
-import activationTesting from "@/assets/activation-testing.jpg";
-import activationField from "@/assets/activation-field.jpg";
-import activationCommunity from "@/assets/activation-community.jpg";
+import approachMarketDevelopment from "@/assets/approach-market-development.jpg";
+import approachRetailActivation from "@/assets/approach-retail-activation.jpg";
+import approachFieldPresence from "@/assets/approach-field-presence.jpg";
+import approachLongTermRelationships from "@/assets/approach-long-term-relationships.jpg";
 import { brands } from "@/lib/brands";
 import { cn } from "@/lib/utils";
 
@@ -180,62 +180,66 @@ function Home() {
           <div className="mt-10 grid grid-cols-1 gap-3 sm:mt-12 md:grid-cols-2 md:gap-4 lg:mt-14">
             <figure className="relative aspect-[4/3] overflow-hidden">
               <img
-                src={activationRetail}
-                alt="Retail activation display in a specialty store"
-                width={1024}
-                height={1024}
+                src={approachMarketDevelopment}
+                alt="Brand showroom with footwear and apparel displays"
+                width={1200}
+                height={900}
                 loading="lazy"
                 decoding="async"
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
+              <div aria-hidden="true" className="absolute inset-0 bg-black/25" />
               <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                MARKET ENTRY
+                MARKET DEVELOPMENT
               </figcaption>
             </figure>
             <figure className="relative aspect-[4/3] overflow-hidden">
               <img
-                src={activationTesting}
-                alt="Athletes testing products outdoors"
-                width={1024}
-                height={1024}
+                src={approachRetailActivation}
+                alt="Trail running village with brand tents and runners"
+                width={1200}
+                height={900}
                 loading="lazy"
                 decoding="async"
                 sizes="(min-width: 768px) 50vw, 100vw"
-                className="absolute inset-0 h-full w-full object-cover object-[50%_42%]"
+                className="absolute inset-0 h-full w-full object-cover object-center"
               />
+              <div aria-hidden="true" className="absolute inset-0 bg-black/25" />
               <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                RETAIL
+                RETAIL ACTIVATION
               </figcaption>
             </figure>
             <figure className="relative aspect-[4/3] overflow-hidden">
               <img
-                src={activationField}
-                alt="Field marketing team at an outdoor activation"
-                width={1024}
-                height={1024}
+                src={approachFieldPresence}
+                alt="Salomon snowboard demo tent with boards and field staff"
+                width={1200}
+                height={900}
                 loading="lazy"
                 decoding="async"
                 sizes="(min-width: 768px) 50vw, 100vw"
-                className="absolute inset-0 h-full w-full object-cover object-[50%_45%]"
+                className="absolute inset-0 h-full w-full object-cover object-center"
               />
+              <div aria-hidden="true" className="absolute inset-0 bg-black/25" />
               <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
                 FIELD PRESENCE
               </figcaption>
             </figure>
             <figure className="relative aspect-[4/3] overflow-hidden">
               <img
-                src={activationCommunity}
-                alt="Outdoor community event with brand participants"
-                width={1024}
-                height={1024}
+                src={approachLongTermRelationships}
+                alt="Mountain group gathering overlooking a lake"
+                width={1200}
+                height={900}
                 loading="lazy"
                 decoding="async"
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="absolute inset-0 h-full w-full object-cover object-center"
               />
+              <div aria-hidden="true" className="absolute inset-0 bg-black/25" />
               <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                RELATIONSHIPS
+                LONG-TERM RELATIONSHIPS
               </figcaption>
             </figure>
           </div>
