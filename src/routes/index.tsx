@@ -66,7 +66,7 @@ function Home() {
           </h1>
         </div>
         <div className="absolute bottom-6 right-6 z-10 hidden text-eyebrow text-[#F7F4EE]/75 sm:block md:right-10">
-          EST. — Active / Outdoor / Performance
+          EST. 2010 — ACTIVE / OUTDOOR / PERFORMANCE
         </div>
       </section>
 
@@ -267,9 +267,9 @@ function Home() {
               </span>
             </a>
             <a
-              href="https://www.linkedin.com/company/advanced-studio"
+              href="https://www.linkedin.com/in/stefoto70/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="group border-t border-background/30 pt-5 transition-colors hover:text-foreground focus-visible:text-foreground"
             >
               <span className="text-eyebrow opacity-70">LinkedIn</span>
