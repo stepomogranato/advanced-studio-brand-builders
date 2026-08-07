@@ -45,12 +45,12 @@ export const brands: Brand[] = [
   },
   {
     slug: "premivm-caps",
-    name: "PREMIVM CAPS",
+    name: "PREMIVM CUSTOM HEADWEAR",
     category: "Custom Headwear",
     image: premivm,
     imageAlt: "Premium custom caps arranged for an outdoor lifestyle shoot",
-    titleLines: ["PREMIVM", "CAPS"],
-    titleClassName: "text-[3.55rem] md:text-[4.35rem] lg:text-[4.85rem]",
+    titleLines: ["PREMIVM", "CUSTOM", "HEADWEAR"],
+    titleClassName: "text-[3rem] md:text-[3.75rem] lg:text-[4.15rem]",
   },
   {
     slug: "salomon-snowboards",
