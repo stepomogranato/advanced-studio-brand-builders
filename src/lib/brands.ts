@@ -1,7 +1,7 @@
 import berghaus from "@/assets/brand-berghaus-new.jpg";
 import katin from "@/assets/brand-katin-new.jpg";
 import nalgene from "@/assets/brand-nalgene-new.jpg";
-import premivm from "@/assets/brand-premivm.jpg";
+import premivm from "@/assets/brand-premivm-new.jpg";
 import salomon from "@/assets/brand-salomon-new.jpg";
 import amplified from "@/assets/brand-amplified-new.jpg";
 
@@ -13,6 +13,7 @@ export type Brand = {
   imageAlt: string;
   titleLines: string[];
   titleClassName: string;
+  titleLineClassNames?: string[];
 };
 
 export const brands: Brand[] = [
@@ -46,11 +47,12 @@ export const brands: Brand[] = [
   {
     slug: "premivm-caps",
     name: "PREMIVM CUSTOM HEADWEAR",
-    category: "Custom Headwear",
+    category: "CUSTOM HEADWEAR",
     image: premivm,
-    imageAlt: "Premium custom caps arranged for an outdoor lifestyle shoot",
-    titleLines: ["PREMIVM", "CUSTOM", "HEADWEAR"],
-    titleClassName: "text-[3rem] md:text-[3.75rem] lg:text-[4.15rem]",
+    imageAlt: "Premium custom cap photographed on a warm wood tabletop",
+    titleLines: ["PREMIVM", "Custom Headwear"],
+    titleClassName: "text-[3.25rem] md:text-[4.1rem] lg:text-[4.6rem]",
+    titleLineClassNames: ["", "mt-1 text-[0.42em] tracking-[-0.02em]"],
   },
   {
     slug: "salomon-snowboards",

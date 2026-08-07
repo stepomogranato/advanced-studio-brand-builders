@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroImg from "@/assets/hero.jpg";
+import heroImg from "@/assets/hero-salomon-carve.jpg";
 import activationRetail from "@/assets/activation-retail.jpg";
 import activationTesting from "@/assets/activation-testing.jpg";
 import activationField from "@/assets/activation-field.jpg";
@@ -36,7 +36,7 @@ function Home() {
       >
         <img
           src={heroImg}
-          alt="Snowboarder carving down an alpine ridge at sunset"
+          alt="Snowboarder carving a wide powder turn across a bright snowfield"
           width={1920}
           height={1080}
           loading="eager"
@@ -47,7 +47,7 @@ function Home() {
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-black/50"
+          className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/5 to-black/30"
         />
         <div className="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col justify-end px-6 pb-12 pt-28 sm:pb-16 md:px-10 md:pb-20 lg:pb-24">
           <div className="text-eyebrow mb-6 max-w-2xl text-[#F7F4EE]/90 sm:mb-8 md:mb-10">
@@ -145,8 +145,8 @@ function Home() {
                       brand.titleClassName,
                     )}
                   >
-                    {brand.titleLines.map((line) => (
-                      <span key={line} className="block">
+                    {brand.titleLines.map((line, index) => (
+                      <span key={line} className={cn("block", brand.titleLineClassNames?.[index])}>
                         {line}
                       </span>
                     ))}
