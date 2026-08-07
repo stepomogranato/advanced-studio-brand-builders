@@ -38,7 +38,7 @@ export const brands: Brand[] = [
   {
     slug: "nalgene",
     name: "Nalgene",
-    category: "Hydration & Outdoor",
+    category: "HYDRATION",
     image: nalgene,
     imageAlt: "Reusable Nalgene bottle beside outdoor hiking gear",
     titleLines: ["Nalgene"],
@@ -66,7 +66,7 @@ export const brands: Brand[] = [
   {
     slug: "amplified",
     name: "Amplified",
-    category: "Sports Protection",
+    category: "MUSIC CULTURE",
     image: amplified,
     imageAlt: "Athlete wearing performance gear during training",
     titleLines: ["Amplified"],
