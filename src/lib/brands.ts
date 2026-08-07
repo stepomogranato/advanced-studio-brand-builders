@@ -1,9 +1,9 @@
-import berghaus from "@/assets/brand-berghaus.jpg";
-import katin from "@/assets/brand-katin.jpg";
-import nalgene from "@/assets/brand-nalgene.jpg";
+import berghaus from "@/assets/brand-berghaus-new.jpg";
+import katin from "@/assets/brand-katin-new.jpg";
+import nalgene from "@/assets/brand-nalgene-new.jpg";
 import premivm from "@/assets/brand-premivm.jpg";
-import salomon from "@/assets/brand-salomon.jpg";
-import amplified from "@/assets/brand-mcdavid.jpg";
+import salomon from "@/assets/brand-salomon-new.jpg";
+import amplified from "@/assets/brand-amplified-new.jpg";
 
 export type Brand = {
   slug: string;
