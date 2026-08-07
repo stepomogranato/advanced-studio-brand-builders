@@ -3,7 +3,7 @@ import katin from "@/assets/brand-katin.jpg";
 import nalgene from "@/assets/brand-nalgene.jpg";
 import premivm from "@/assets/brand-premivm.jpg";
 import salomon from "@/assets/brand-salomon.jpg";
-import mcdavid from "@/assets/brand-mcdavid.jpg";
+import amplified from "@/assets/brand-mcdavid.jpg";
 
 export type Brand = {
   slug: string;
@@ -11,6 +11,8 @@ export type Brand = {
   category: string;
   image: string;
   imageAlt: string;
+  titleLines: string[];
+  titleClassName: string;
 };
 
 export const brands: Brand[] = [
@@ -20,6 +22,8 @@ export const brands: Brand[] = [
     category: "Outdoor Performance",
     image: berghaus,
     imageAlt: "Hiker wearing a technical shell on a rocky mountain ridge",
+    titleLines: ["Berghaus"],
+    titleClassName: "text-[3.45rem] md:text-[4.35rem] lg:text-[4.85rem]",
   },
   {
     slug: "katin",
@@ -27,6 +31,8 @@ export const brands: Brand[] = [
     category: "California Lifestyle",
     image: katin,
     imageAlt: "Surfer walking along the shoreline with a surfboard",
+    titleLines: ["Katin"],
+    titleClassName: "text-[4.2rem] md:text-[5.25rem] lg:text-[5.85rem]",
   },
   {
     slug: "nalgene",
@@ -34,6 +40,8 @@ export const brands: Brand[] = [
     category: "Hydration & Outdoor",
     image: nalgene,
     imageAlt: "Reusable Nalgene bottle beside outdoor hiking gear",
+    titleLines: ["Nalgene"],
+    titleClassName: "text-[3.65rem] md:text-[4.55rem] lg:text-[5.05rem]",
   },
   {
     slug: "premivm-caps",
@@ -41,6 +49,8 @@ export const brands: Brand[] = [
     category: "Custom Headwear",
     image: premivm,
     imageAlt: "Premium custom caps arranged for an outdoor lifestyle shoot",
+    titleLines: ["PREMIVM", "CAPS"],
+    titleClassName: "text-[3.55rem] md:text-[4.35rem] lg:text-[4.85rem]",
   },
   {
     slug: "salomon-snowboards",
@@ -48,12 +58,16 @@ export const brands: Brand[] = [
     category: "Snowboard Equipment",
     image: salomon,
     imageAlt: "Snowboarder riding through deep mountain snow",
+    titleLines: ["Salomon", "Snowboards"],
+    titleClassName: "text-[3.15rem] md:text-[3.95rem] lg:text-[4.35rem]",
   },
   {
-    slug: "mcdavid",
-    name: "McDavid",
+    slug: "amplified",
+    name: "Amplified",
     category: "Sports Protection",
-    image: mcdavid,
-    imageAlt: "Athlete wearing protective sports equipment during training",
+    image: amplified,
+    imageAlt: "Athlete wearing performance gear during training",
+    titleLines: ["Amplified"],
+    titleClassName: "text-[3.35rem] md:text-[4.25rem] lg:text-[4.75rem]",
   },
 ];

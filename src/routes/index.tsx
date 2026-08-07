@@ -5,6 +5,7 @@ import activationTesting from "@/assets/activation-testing.jpg";
 import activationField from "@/assets/activation-field.jpg";
 import activationCommunity from "@/assets/activation-community.jpg";
 import { brands } from "@/lib/brands";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -138,7 +139,18 @@ function Home() {
               <div className="absolute inset-0 flex flex-col justify-between p-6 text-[#F7F4EE] md:p-8">
                 <div className="text-eyebrow opacity-80">{brand.category}</div>
                 <div>
-                  <h3 className="text-display text-5xl md:text-6xl lg:text-7xl">{brand.name}</h3>
+                  <h3
+                    className={cn(
+                      "text-display max-w-full leading-[0.9] tracking-[-0.035em]",
+                      brand.titleClassName,
+                    )}
+                  >
+                    {brand.titleLines.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </h3>
                 </div>
               </div>
             </article>
