@@ -1,11 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImg from "@/assets/hero.jpg";
-import activationRetail from "@/assets/activation-retail.jpg";
-import activationTesting from "@/assets/activation-testing.jpg";
-import activationField from "@/assets/activation-field.jpg";
-import activationSales from "@/assets/activation-sales.jpg";
-import activationCommunity from "@/assets/activation-community.jpg";
+import { createFileRoute } from "@tanstack/react-router";
+import heroImg from "@/assets/hero-salomon-carve.jpg";
+import approachMarketDevelopment from "@/assets/approach-market-development.jpg";
+import approachRetailActivation from "@/assets/approach-retail-activation.jpg";
+import approachFieldPresence from "@/assets/approach-field-presence.jpg";
+import approachLongTermRelationships from "@/assets/approach-long-term-relationships.jpg";
 import { brands } from "@/lib/brands";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Advanced Studio — Building Brands. Creating Markets." },
       {
         property: "og:description",
-        content: "Distribution • Market Development • Brand Management",
+        content: "Active • Outdoor • Performance",
       },
     ],
   }),
@@ -29,14 +29,14 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <>
-      {/* HERO */}
       <section
+        id="top"
         aria-labelledby="home-hero-title"
-        className="relative min-h-[100svh] h-[100dvh] w-full overflow-hidden"
+        className="relative min-h-[100svh] h-[100dvh] w-full scroll-mt-24 overflow-hidden"
       >
         <img
           src={heroImg}
-          alt="Snowboarder carving down an alpine ridge at sunset"
+          alt="Snowboarder carving a wide powder turn across a bright snowfield"
           width={1920}
           height={1080}
           loading="eager"
@@ -47,14 +47,14 @@ function Home() {
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-black/50"
+          className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/5 to-black/30"
         />
-        <div className="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col justify-end px-6 pb-20 pt-28 sm:pb-24 md:px-10 md:pb-28 lg:pb-36">
+        <div className="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col justify-end px-6 pb-12 pt-28 sm:pb-16 md:px-10 md:pb-20 lg:pb-24">
           <div className="text-eyebrow mb-6 max-w-2xl text-[#F7F4EE]/90 sm:mb-8 md:mb-10">
             <span aria-hidden="true" className="text-accent">
               ●
             </span>
-            &nbsp;&nbsp;Distribution • Market Development • Brand Management
+            &nbsp;&nbsp;ACTIVE • OUTDOOR • PERFORMANCE
           </div>
           <h1
             id="home-hero-title"
@@ -66,226 +66,228 @@ function Home() {
           </h1>
         </div>
         <div className="absolute bottom-6 right-6 z-10 hidden text-eyebrow text-[#F7F4EE]/75 sm:block md:right-10">
-          EST. — Active / Outdoor / Performance
+          EST. 2010 — ACTIVE / OUTDOOR / PERFORMANCE
         </div>
       </section>
 
-      {/* BRANDS */}
       <section
-        aria-labelledby="brands-heading"
-        className="section-space content-auto mx-auto max-w-[1600px] px-6 md:px-10"
+        aria-labelledby="statement-heading"
+        className="content-auto bg-foreground px-6 pb-32 pt-16 text-background md:px-10 md:pb-44 md:pt-20 lg:pb-56 lg:pt-24"
       >
-        <div className="mb-10 grid gap-6 md:mb-14 md:grid-cols-12 md:items-end md:gap-10">
+        <div className="mx-auto grid max-w-[1600px] gap-16 md:grid-cols-12 md:gap-16">
+          <div className="text-eyebrow text-accent md:col-span-3">MANIFESTO</div>
+          <div className="md:col-span-9">
+            <h2
+              id="statement-heading"
+              className="text-display max-w-6xl text-[clamp(3.5rem,8vw,8rem)]"
+            >
+              <span className="block">WE DON&apos;T BUILD DISTRIBUTION.</span>
+              <span className="mt-4 block">
+                WE BUILD <span className="text-accent">ECOSYSTEMS.</span>
+              </span>
+            </h2>
+            <div className="mt-16 max-w-2xl space-y-6 text-base leading-relaxed text-background/70 md:text-lg">
+              <p>Distribution is only one layer of a much bigger system.</p>
+              <p>
+                Strong brands are built through trust, education, relationships, cultural relevance
+                and long-term thinking.
+              </p>
+              <p>Our role is to design that ecosystem.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="brands"
+        aria-labelledby="brands-heading"
+        className="content-auto scroll-mt-24 mx-auto max-w-[1600px] px-6 py-24 md:px-10 md:py-32 lg:py-40"
+      >
+        <div className="mb-14 md:mb-20">
           <div className="md:col-span-7">
-            <div className="text-eyebrow text-accent mb-4">— Portfolio</div>
+            <div className="text-eyebrow text-accent mb-4">— Brands</div>
             <h2 id="brands-heading" className="text-display section-title">
               OUR BRANDS
             </h2>
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              We work with a carefully selected portfolio of brands we genuinely believe in. Every
+              partnership is built for long-term market development rather than simple distribution.
+            </p>
           </div>
-          <p className="max-w-md text-base leading-relaxed text-muted-foreground md:col-span-4 md:col-start-9">
-            A curated portfolio of active, outdoor and performance brands we distribute and develop
-            across markets.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-          {brands.map((b) => (
-            <Link
-              key={b.slug}
-              to="/brands/$slug"
-              params={{ slug: b.slug }}
-              aria-label={`View ${b.name} brand page`}
-              className="group relative block aspect-[4/5] overflow-hidden bg-foreground"
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3">
+          {brands.map((brand) => (
+            <article
+              key={brand.slug}
+              className="group relative aspect-[4/5] overflow-hidden bg-foreground"
             >
               <img
-                src={b.image}
-                alt={b.imageAlt}
+                src={brand.image}
+                alt={brand.imageAlt}
                 width={1024}
                 height={1280}
                 loading="lazy"
                 decoding="async"
                 sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1200ms] group-hover:scale-105 group-focus-visible:scale-105"
+                className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1200ms] group-hover:scale-105"
               />
               <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+                className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/10"
               />
-              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between text-[#F7F4EE]">
-                <div className="text-eyebrow opacity-80">{b.category}</div>
+              <div className="absolute inset-0 flex flex-col justify-between p-6 text-[#F7F4EE] md:p-8">
+                <div className="text-eyebrow opacity-80">{brand.category}</div>
                 <div>
-                  <div className="text-display text-3xl md:text-4xl">{b.name}</div>
-                  <div className="mt-3 inline-flex items-center gap-2 text-eyebrow text-accent opacity-100 transition md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100">
-                    View brand <span aria-hidden>→</span>
-                  </div>
+                  <h3
+                    className={cn(
+                      "text-display max-w-full leading-[0.9] tracking-[-0.035em]",
+                      brand.titleClassName,
+                    )}
+                  >
+                    {brand.titleLines.map((line, index) => (
+                      <span key={line} className={cn("block", brand.titleLineClassNames?.[index])}>
+                        {line}
+                      </span>
+                    ))}
+                  </h3>
                 </div>
               </div>
-            </Link>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* ACTIVATIONS */}
       <section
-        aria-labelledby="activations-heading"
-        className="section-space content-auto bg-foreground text-background"
+        id="in-the-field"
+        aria-labelledby="field-heading"
+        className="content-auto scroll-mt-24 bg-foreground py-24 text-background md:py-32 lg:py-40"
       >
-        <div className="max-w-[1600px] mx-auto px-6 md:px-10">
-          <div className="text-eyebrow text-accent mb-6">— Marketing Activations</div>
-          <h2 id="activations-heading" className="text-display section-title max-w-5xl">
-            FROM PRODUCT
-            <br />
-            TO <span className="text-accent">COMMUNITY.</span>
-          </h2>
-
-          <div className="mt-10 grid grid-cols-12 gap-3 sm:mt-12 md:mt-16 md:gap-4">
-            <figure className="col-span-12 md:col-span-7 relative aspect-[16/10] overflow-hidden">
-              <img
-                src={activationRetail}
-                alt="Retail activation display in a specialty store"
-                width={1024}
-                height={1024}
-                loading="lazy"
-                decoding="async"
-                sizes="(min-width: 768px) 58vw, 100vw"
-                className="absolute inset-0 h-full w-full object-cover object-center"
-              />
-              <figcaption className="absolute bottom-3 left-3 bg-background px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Retail activation
-              </figcaption>
-            </figure>
-            <figure className="col-span-6 md:col-span-5 relative aspect-[4/5] overflow-hidden">
-              <img
-                src={activationCommunity}
-                alt="Outdoor community event with brand participants"
-                width={1024}
-                height={1024}
-                loading="lazy"
-                decoding="async"
-                sizes="(min-width: 768px) 42vw, 50vw"
-                className="absolute inset-0 h-full w-full object-cover object-center"
-              />
-              <figcaption className="absolute bottom-3 left-3 bg-background px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Community events
-              </figcaption>
-            </figure>
-            <figure className="col-span-6 md:col-span-4 relative aspect-[4/5] overflow-hidden">
-              <img
-                src={activationTesting}
-                alt="Athletes testing products outdoors"
-                width={1024}
-                height={1024}
-                loading="lazy"
-                decoding="async"
-                sizes="(min-width: 768px) 33vw, 50vw"
-                className="absolute inset-0 h-full w-full object-cover object-center"
-              />
-              <figcaption className="absolute bottom-3 left-3 bg-background px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Product testing
-              </figcaption>
-            </figure>
-            <figure className="col-span-12 md:col-span-8 relative aspect-[16/9] overflow-hidden">
-              <img
-                src={activationField}
-                alt="Field marketing team at an outdoor activation"
-                width={1024}
-                height={1024}
-                loading="lazy"
-                decoding="async"
-                sizes="(min-width: 768px) 67vw, 100vw"
-                className="absolute inset-0 h-full w-full object-cover object-center"
-              />
-              <figcaption className="absolute bottom-3 left-3 bg-background px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Field marketing
-              </figcaption>
-            </figure>
-            <figure className="relative col-span-12 aspect-[16/10] overflow-hidden sm:aspect-[21/9]">
-              <img
-                src={activationSales}
-                alt="Brand presentation during a sales meeting"
-                width={1024}
-                height={1024}
-                loading="lazy"
-                decoding="async"
-                sizes="100vw"
-                className="absolute inset-0 h-full w-full object-cover object-center"
-              />
-              <figcaption className="absolute bottom-3 left-3 bg-background px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
-                Sales meetings
-              </figcaption>
-            </figure>
-          </div>
-
-          <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-eyebrow text-background/60">
-            <li>Retail activation</li>
-            <li aria-hidden="true" className="text-accent">
-              /
-            </li>
-            <li>Product testing</li>
-            <li aria-hidden="true" className="text-accent">
-              /
-            </li>
-            <li>Field marketing</li>
-            <li aria-hidden="true" className="text-accent">
-              /
-            </li>
-            <li>Sales meetings</li>
-            <li aria-hidden="true" className="text-accent">
-              /
-            </li>
-            <li>Community events</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* ABOUT PREVIEW */}
-      <section
-        aria-labelledby="about-heading"
-        className="section-space content-auto mx-auto max-w-[1600px] px-6 md:px-10"
-      >
-        <div className="grid md:grid-cols-12 gap-10 items-end">
-          <div className="md:col-span-8">
-            <div className="text-eyebrow text-accent mb-6">— About</div>
-            <h2 id="about-heading" className="text-display section-title">
-              CONNECTING BRANDS
-              <br />
-              AND <span className="text-accent">MARKETS.</span>
-            </h2>
-          </div>
-          <div className="md:col-span-4">
-            <p className="text-base md:text-lg leading-relaxed">
-              Advanced Studio develops active and lifestyle brands through distribution, market
-              development and strategic brand support.
+        <div className="mx-auto max-w-[1600px] px-6 md:px-10">
+          <div className="grid gap-8 md:grid-cols-12 md:items-end md:gap-10">
+            <div className="md:col-span-8">
+              <div className="text-eyebrow text-accent mb-6">— Ecosystem Approach</div>
+              <h2 id="field-heading" className="text-display section-title">
+                HOW WE CREATE ECOSYSTEMS
+              </h2>
+            </div>
+            <p className="max-w-md text-base leading-relaxed text-background/70 md:col-span-4">
+              Markets are built where people meet products. Everything we do in the field exists to
+              create trust, knowledge and long-term relationships.
             </p>
-            <Link
-              to="/about"
-              className="mt-6 inline-flex items-center gap-2 text-eyebrow border-b border-foreground pb-1 hover:text-accent hover:border-accent transition"
-            >
-              More about us <span aria-hidden>→</span>
-            </Link>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-3 sm:mt-12 md:grid-cols-2 md:gap-4 lg:mt-14">
+            <figure className="relative aspect-[4/3] overflow-hidden">
+              <img
+                src={approachMarketDevelopment}
+                alt="Brand showroom with footwear and apparel displays"
+                width={1200}
+                height={900}
+                loading="lazy"
+                decoding="async"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="absolute inset-0 h-full w-full object-cover object-center"
+              />
+              <div aria-hidden="true" className="absolute inset-0 bg-black/25" />
+              <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
+                MARKET DEVELOPMENT
+              </figcaption>
+            </figure>
+            <figure className="relative aspect-[4/3] overflow-hidden">
+              <img
+                src={approachRetailActivation}
+                alt="Trail running village with brand tents and runners"
+                width={1200}
+                height={900}
+                loading="lazy"
+                decoding="async"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="absolute inset-0 h-full w-full object-cover object-center"
+              />
+              <div aria-hidden="true" className="absolute inset-0 bg-black/25" />
+              <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
+                RETAIL ACTIVATION
+              </figcaption>
+            </figure>
+            <figure className="relative aspect-[4/3] overflow-hidden">
+              <img
+                src={approachFieldPresence}
+                alt="Salomon snowboard demo tent with boards and field staff"
+                width={1200}
+                height={900}
+                loading="lazy"
+                decoding="async"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="absolute inset-0 h-full w-full object-cover object-center"
+              />
+              <div aria-hidden="true" className="absolute inset-0 bg-black/25" />
+              <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
+                FIELD PRESENCE
+              </figcaption>
+            </figure>
+            <figure className="relative aspect-[4/3] overflow-hidden">
+              <img
+                src={approachLongTermRelationships}
+                alt="Mountain group gathering overlooking a lake"
+                width={1200}
+                height={900}
+                loading="lazy"
+                decoding="async"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="absolute inset-0 h-full w-full object-cover object-center"
+              />
+              <div aria-hidden="true" className="absolute inset-0 bg-black/25" />
+              <figcaption className="absolute bottom-3 left-3 bg-background/95 px-3 py-1.5 text-eyebrow text-foreground md:bottom-4 md:left-4">
+                LONG-TERM RELATIONSHIPS
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
       <section
+        id="contact"
         aria-labelledby="contact-heading"
-        className="content-auto px-6 pb-16 md:px-10 md:pb-24"
+        className="content-auto scroll-mt-24 px-6 py-14 md:px-10 md:py-18"
       >
-        <div className="relative mx-auto max-w-[1600px] overflow-hidden bg-accent p-8 text-background sm:p-10 md:p-16 lg:p-20">
-          <div className="text-eyebrow mb-8 opacity-80">— Get in touch</div>
+        <div className="relative mx-auto max-w-[1600px] overflow-hidden bg-accent p-8 text-background sm:p-10 md:p-12 lg:p-14">
+          <div className="text-eyebrow mb-6 opacity-80">— Contact</div>
           <h2
             id="contact-heading"
-            className="text-display max-w-4xl text-[clamp(2.75rem,7vw,6rem)]"
+            className="text-display max-w-5xl text-[clamp(2.75rem,7vw,6rem)]"
           >
-            READY TO BUILD SOMETHING BIG?
+            LET&apos;S BUILD SOMETHING TOGETHER.
           </h2>
-          <Link
-            to="/contact"
-            className="mt-12 inline-flex items-center gap-3 bg-background text-foreground px-8 py-5 text-eyebrow hover:bg-foreground hover:text-background transition"
-          >
-            Contact us <span aria-hidden>→</span>
-          </Link>
+
+          <div className="mt-10 grid gap-6 text-background md:grid-cols-3">
+            <a
+              href="mailto:info@advancedstudio.eu"
+              className="group border-t border-background/30 pt-5 transition-colors hover:text-foreground focus-visible:text-foreground"
+            >
+              <span className="text-eyebrow opacity-70">Email</span>
+              <span className="mt-3 block break-words text-display text-2xl md:text-3xl">
+                info@advancedstudio.eu
+              </span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/stefoto70/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group border-t border-background/30 pt-5 transition-colors hover:text-foreground focus-visible:text-foreground"
+            >
+              <span className="text-eyebrow opacity-70">LinkedIn</span>
+              <span className="mt-3 block text-display text-2xl md:text-3xl">LinkedIn</span>
+            </a>
+            <div className="border-t border-background/30 pt-5 text-background/75">
+              <span className="text-eyebrow opacity-70">Location</span>
+              <span className="mt-3 block text-display text-2xl md:text-3xl">
+                MILAN
+                <br />
+                ITALY
+              </span>
+            </div>
+          </div>
         </div>
       </section>
     </>

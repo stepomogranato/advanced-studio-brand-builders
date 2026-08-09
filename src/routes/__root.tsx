@@ -21,7 +21,12 @@ function NotFoundComponent() {
         <h1 className="text-display text-7xl">404</h1>
         <p className="mt-4 text-sm text-muted-foreground">This page is off-trail.</p>
         <div className="mt-6">
-          <Link to="/" className="text-eyebrow border-b border-foreground pb-1 transition-colors hover:border-accent hover:text-accent">Back to base camp</Link>
+          <Link
+            to="/"
+            className="text-eyebrow border-b border-foreground pb-1 transition-colors hover:border-accent hover:text-accent"
+          >
+            Back to base camp
+          </Link>
         </div>
       </div>
     </div>
@@ -42,12 +47,18 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <p className="mt-2 text-sm text-muted-foreground">Try again or head home.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="bg-accent text-background px-5 py-2.5 text-sm font-medium hover:bg-accent-dark transition"
           >
             Try again
           </button>
-          <a href="/" className="border border-foreground px-5 py-2.5 text-sm font-medium hover:bg-foreground hover:text-background transition">
+          <a
+            href="/"
+            className="border border-foreground px-5 py-2.5 text-sm font-medium hover:bg-foreground hover:text-background transition"
+          >
             Go home
           </a>
         </div>
@@ -62,16 +73,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Advanced Studio — Building Brands. Creating Markets." },
-      { name: "description", content: "Advanced Studio is a distribution and market development company for active, outdoor, sportswear and performance brands." },
+      {
+        name: "description",
+        content:
+          "Advanced Studio is a distribution and market development company for active, outdoor, sportswear and performance brands.",
+      },
       { property: "og:title", content: "Advanced Studio" },
-      { property: "og:description", content: "Distribution • Market Development • Brand Management" },
+      {
+        property: "og:description",
+        content: "Active • Outdoor • Performance",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap",
+      },
       { rel: "stylesheet", href: appCss },
     ],
   }),
