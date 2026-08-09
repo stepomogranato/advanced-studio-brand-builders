@@ -3,9 +3,9 @@
   "name": "advanced-studio-brand-builders",
   "compatibility_date": "2026-08-09",
   "compatibility_flags": ["nodejs_compat"],
-  "main": ".output/server/index.mjs",
+  "main": "dist/server/server.js",
   "assets": {
-    "directory": ".output/public"
+    "directory": "dist/client"
   },
   "observability": {
     "enabled": true
