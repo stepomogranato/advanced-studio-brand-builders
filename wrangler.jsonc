@@ -13,10 +13,11 @@
       "bucket_name": "advanced-studio-trade-assets",
     },
   ],
-  "analytics_engine_datasets": [
+  "d1_databases": [
     {
       "binding": "TRADE_ANALYTICS",
-      "dataset": "advanced_studio_trade_events",
+      "database_name": "advanced-studio-trade-analytics",
+      "database_id": "e36e7ab5-c18f-41fd-b667-caec4ad82f53",
     },
   ],
   "observability": {

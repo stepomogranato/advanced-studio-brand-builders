@@ -20,13 +20,19 @@ type TradeAssetBucket = {
   head: (key: string) => Promise<Omit<TradeAssetObject, "body"> | null>;
 };
 
-type AnalyticsEngineDataset = {
-  writeDataPoint: (event: { blobs?: string[]; doubles?: number[]; indexes?: string[] }) => void;
+type TradeAnalyticsDatabase = {
+  prepare: (query: string) => {
+    bind: (...values: string[]) => { run: () => Promise<unknown> };
+  };
+};
+
+type WorkerExecutionContext = {
+  waitUntil: (promise: Promise<unknown>) => void;
 };
 
 type WorkerEnvironment = {
   TRADE_ASSETS?: TradeAssetBucket;
-  TRADE_ANALYTICS?: AnalyticsEngineDataset;
+  TRADE_ANALYTICS?: TradeAnalyticsDatabase;
 };
 
 const TRADE_ASSET_PREFIX = "/trade-assets/";
@@ -60,11 +66,12 @@ function recordTradeEvent(
   const campaign = cleanAnalyticsValue(event.campaign, "direct");
   const path = cleanAnalyticsValue(event.path, "/trade/unknown", 160);
 
-  env.TRADE_ANALYTICS.writeDataPoint({
-    blobs: [action, brand, campaign, country, path],
-    doubles: [1],
-    indexes: [brand],
-  });
+  return env.TRADE_ANALYTICS.prepare(
+    `INSERT INTO trade_events (action, brand, campaign, country, path)
+     VALUES (?, ?, ?, ?, ?)`,
+  )
+    .bind(action, brand, campaign, country, path)
+    .run();
 }
 
 async function handleTradeEvent(request: Request, env: WorkerEnvironment) {
@@ -83,7 +90,7 @@ async function handleTradeEvent(request: Request, env: WorkerEnvironment) {
     return new Response("Invalid event", { status: 400 });
   }
 
-  recordTradeEvent(request, env, {
+  await recordTradeEvent(request, env, {
     action: payload.action,
     brand: cleanAnalyticsValue(payload.brand, "unknown"),
     campaign: cleanAnalyticsValue(payload.campaign, "direct"),
@@ -181,12 +188,13 @@ export default {
         url.pathname === "/trade/amplified" &&
         response.status < 400
       ) {
-        recordTradeEvent(request, workerEnv, {
+        const analyticsWrite = recordTradeEvent(request, workerEnv, {
           action: "page-view",
           brand: "amplified",
           campaign: url.searchParams.get("campaign") ?? "direct",
           path: url.pathname,
         });
+        if (analyticsWrite) (ctx as WorkerExecutionContext).waitUntil(analyticsWrite);
       }
       return await normalizeCatastrophicSsrResponse(response);
     } catch (error) {
