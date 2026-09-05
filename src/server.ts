@@ -46,7 +46,10 @@ async function serveTradeAsset(request: Request, env: WorkerEnvironment) {
   headers.set("Cache-Control", "public, max-age=3600");
   if (object.httpEtag) headers.set("ETag", object.httpEtag);
 
-  if (object.range) {
+  const isPartialResponse =
+    request.method !== "HEAD" && request.headers.has("Range") && Boolean(object.range);
+
+  if (isPartialResponse && object.range) {
     const { offset, length } = object.range;
     headers.set("Content-Length", String(length));
     headers.set("Content-Range", `bytes ${offset}-${offset + length - 1}/${object.size}`);
@@ -55,7 +58,7 @@ async function serveTradeAsset(request: Request, env: WorkerEnvironment) {
   }
 
   return new Response("body" in object ? object.body : null, {
-    status: object.range ? 206 : 200,
+    status: isPartialResponse ? 206 : 200,
     headers,
   });
 }
