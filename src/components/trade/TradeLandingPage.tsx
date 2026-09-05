@@ -15,8 +15,8 @@ export function TradeLandingPage({ config }: TradeLandingPageProps) {
           <h1 className="text-display mt-5 text-[clamp(3.75rem,11vw,9rem)]">TRADE AREA</h1>
         </header>
 
-        <div className="grid gap-14 py-14 md:grid-cols-12 md:gap-10 md:py-20">
-          <section className="md:col-span-8" aria-labelledby="trade-collection-heading">
+        <div className="grid gap-14 py-14 md:grid-cols-12 md:gap-12 md:py-20 lg:gap-16">
+          <section className="md:col-span-7" aria-labelledby="trade-collection-heading">
             <p className="text-eyebrow text-background/60">{config.collectionLabel}</p>
             <h2
               id="trade-collection-heading"
@@ -50,30 +50,53 @@ export function TradeLandingPage({ config }: TradeLandingPageProps) {
             )}
           </section>
 
-          <aside className="grid content-start gap-8 md:col-span-4 md:justify-self-end md:min-w-64">
-            <div className="border-t border-background/20 pt-5">
-              <p className="text-eyebrow text-background/60">{config.priceList.label}</p>
-              {config.priceList.href ? (
-                <a
-                  href={config.priceList.href}
-                  download
-                  className="text-eyebrow mt-3 inline-block text-background transition-colors hover:text-accent"
-                >
-                  DOWNLOAD
-                </a>
-              ) : (
-                <p className="text-eyebrow mt-3 text-accent">{config.priceList.status}</p>
-              )}
-            </div>
-
-            <div className="border-t border-background/20 pt-5">
-              <p className="text-eyebrow text-background/60">CONTACT</p>
+          <aside className="grid w-full content-start gap-8 md:col-span-5 md:max-w-md md:justify-self-end">
+            {config.coverImage && catalogueHref && (
               <a
-                href={`mailto:${config.contactEmail}`}
-                className="mt-3 block break-all text-base transition-colors hover:text-accent"
+                href={catalogueHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View ${config.brand} catalogue`}
+                className="group block max-w-[18rem] justify-self-center md:max-w-sm"
               >
-                {config.contactEmail}
+                <figure className="overflow-hidden border border-background/15 bg-background/5 p-2 shadow-2xl shadow-black/30 transition-transform duration-500 group-hover:-translate-y-1">
+                  <img
+                    src={config.coverImage.src}
+                    alt={config.coverImage.alt}
+                    width="1241"
+                    height="1754"
+                    loading="eager"
+                    className="aspect-[1241/1754] w-full object-cover"
+                  />
+                </figure>
               </a>
+            )}
+
+            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+              <div className="border-t border-background/20 pt-5">
+                <p className="text-eyebrow text-background/60">{config.priceList.label}</p>
+                {config.priceList.href ? (
+                  <a
+                    href={config.priceList.href}
+                    download
+                    className="text-eyebrow mt-3 inline-block text-background transition-colors hover:text-accent"
+                  >
+                    DOWNLOAD
+                  </a>
+                ) : (
+                  <p className="text-eyebrow mt-3 text-accent">{config.priceList.status}</p>
+                )}
+              </div>
+
+              <div className="border-t border-background/20 pt-5">
+                <p className="text-eyebrow text-background/60">CONTACT</p>
+                <a
+                  href={`mailto:${config.contactEmail}`}
+                  className="mt-3 block break-all text-base transition-colors hover:text-accent"
+                >
+                  {config.contactEmail}
+                </a>
+              </div>
             </div>
           </aside>
         </div>
