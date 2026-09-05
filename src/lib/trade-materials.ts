@@ -15,7 +15,7 @@ export type TradePageConfig = {
     alt: string;
   };
   catalogue: TradeMaterial;
-  priceList: TradeMaterial;
+  additionalMaterial: TradeMaterial;
   contactEmail: string;
 };
 
@@ -31,10 +31,9 @@ export const amplifiedTradePage: TradePageConfig = {
     label: "CATALOGUE",
     href: "/trade-assets/amplified/amplified-catalogue.pdf",
   },
-  priceList: {
-    label: "PRICE LIST",
-    href: null,
-    status: "COMING SOON",
+  additionalMaterial: {
+    label: "ORDER FORM",
+    href: "/trade-assets/amplified/amplified-order-form.xlsx",
   },
   contactEmail: "info@advancedstudio.eu",
 };

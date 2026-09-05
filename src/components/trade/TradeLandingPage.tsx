@@ -74,17 +74,21 @@ export function TradeLandingPage({ config }: TradeLandingPageProps) {
 
             <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
               <div className="border-t border-background/20 pt-5">
-                <p className="text-eyebrow text-background/60">{config.priceList.label}</p>
-                {config.priceList.href ? (
+                <p className="text-eyebrow text-background/60">{config.additionalMaterial.label}</p>
+                {config.additionalMaterial.href ? (
                   <a
-                    href={config.priceList.href}
+                    href={config.additionalMaterial.href}
                     download
+                    data-trade-action="download-order-form"
+                    data-trade-brand={config.brand.toLowerCase()}
                     className="text-eyebrow mt-3 inline-block text-background transition-colors hover:text-accent"
                   >
                     DOWNLOAD
                   </a>
                 ) : (
-                  <p className="text-eyebrow mt-3 text-accent">{config.priceList.status}</p>
+                  <p className="text-eyebrow mt-3 text-accent">
+                    {config.additionalMaterial.status}
+                  </p>
                 )}
               </div>
 
