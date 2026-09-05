@@ -7,6 +7,28 @@ type TradeLandingPageProps = {
 export function TradeLandingPage({ config }: TradeLandingPageProps) {
   const catalogueHref = config.catalogue.href;
 
+  function trackAction(action: string) {
+    const params = new URLSearchParams(window.location.search);
+    const payload = JSON.stringify({
+      action,
+      brand: config.brand.toLowerCase(),
+      campaign: params.get("campaign") ?? "direct",
+      path: window.location.pathname,
+    });
+
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon("/api/trade-event", new Blob([payload], { type: "application/json" }));
+      return;
+    }
+
+    void fetch("/api/trade-event", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: payload,
+      keepalive: true,
+    });
+  }
+
   return (
     <article className="min-h-screen bg-foreground px-6 pb-20 pt-32 text-background md:px-10 md:pb-28 md:pt-40">
       <div className="mx-auto flex min-h-[calc(100svh-13rem)] max-w-[1600px] flex-col justify-between">
@@ -33,6 +55,7 @@ export function TradeLandingPage({ config }: TradeLandingPageProps) {
                   rel="noopener noreferrer"
                   data-trade-action="view-catalogue"
                   data-trade-brand={config.brand.toLowerCase()}
+                  onClick={() => trackAction("view-catalogue")}
                   className="text-eyebrow inline-flex min-h-14 items-center justify-center bg-accent px-7 text-center text-background transition-colors hover:bg-accent-dark"
                 >
                   VIEW {config.catalogue.label}
@@ -42,6 +65,7 @@ export function TradeLandingPage({ config }: TradeLandingPageProps) {
                   download
                   data-trade-action="download-catalogue"
                   data-trade-brand={config.brand.toLowerCase()}
+                  onClick={() => trackAction("download-catalogue")}
                   className="text-eyebrow inline-flex min-h-14 items-center justify-center border border-background/40 px-7 text-center text-background transition-colors hover:border-background hover:bg-background hover:text-foreground"
                 >
                   DOWNLOAD {config.catalogue.label}
@@ -57,6 +81,9 @@ export function TradeLandingPage({ config }: TradeLandingPageProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`View ${config.brand} catalogue`}
+                data-trade-action="view-catalogue"
+                data-trade-brand={config.brand.toLowerCase()}
+                onClick={() => trackAction("view-catalogue")}
                 className="group block max-w-[18rem] justify-self-center md:max-w-sm"
               >
                 <figure className="overflow-hidden border border-background/15 bg-background/5 p-2 shadow-2xl shadow-black/30 transition-transform duration-500 group-hover:-translate-y-1">
@@ -81,6 +108,7 @@ export function TradeLandingPage({ config }: TradeLandingPageProps) {
                     download
                     data-trade-action="download-order-form"
                     data-trade-brand={config.brand.toLowerCase()}
+                    onClick={() => trackAction("download-order-form")}
                     className="text-eyebrow mt-3 inline-block text-background transition-colors hover:text-accent"
                   >
                     DOWNLOAD

@@ -20,11 +20,81 @@ type TradeAssetBucket = {
   head: (key: string) => Promise<Omit<TradeAssetObject, "body"> | null>;
 };
 
+type AnalyticsEngineDataset = {
+  writeDataPoint: (event: { blobs?: string[]; doubles?: number[]; indexes?: string[] }) => void;
+};
+
 type WorkerEnvironment = {
   TRADE_ASSETS?: TradeAssetBucket;
+  TRADE_ANALYTICS?: AnalyticsEngineDataset;
 };
 
 const TRADE_ASSET_PREFIX = "/trade-assets/";
+const TRADE_EVENT_PATH = "/api/trade-event";
+const ALLOWED_TRADE_ACTIONS = new Set([
+  "view-catalogue",
+  "download-catalogue",
+  "download-order-form",
+]);
+
+function cleanAnalyticsValue(value: unknown, fallback: string, maxLength = 80) {
+  if (typeof value !== "string") return fallback;
+  const cleaned = value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9._-]/g, "-");
+  return cleaned.slice(0, maxLength) || fallback;
+}
+
+function recordTradeEvent(
+  request: Request,
+  env: WorkerEnvironment,
+  event: { action: string; brand: string; campaign?: string; path?: string },
+) {
+  if (!env.TRADE_ANALYTICS) return;
+
+  const requestWithCf = request as Request & { cf?: { country?: string } };
+  const country = cleanAnalyticsValue(requestWithCf.cf?.country, "unknown", 2);
+  const action = cleanAnalyticsValue(event.action, "unknown");
+  const brand = cleanAnalyticsValue(event.brand, "unknown");
+  const campaign = cleanAnalyticsValue(event.campaign, "direct");
+  const path = cleanAnalyticsValue(event.path, "/trade/unknown", 160);
+
+  env.TRADE_ANALYTICS.writeDataPoint({
+    blobs: [action, brand, campaign, country, path],
+    doubles: [1],
+    indexes: [brand],
+  });
+}
+
+async function handleTradeEvent(request: Request, env: WorkerEnvironment) {
+  const url = new URL(request.url);
+  if (url.pathname !== TRADE_EVENT_PATH) return;
+  if (request.method !== "POST") return new Response("Method not allowed", { status: 405 });
+
+  let payload: { action?: unknown; brand?: unknown; campaign?: unknown; path?: unknown };
+  try {
+    payload = (await request.json()) as typeof payload;
+  } catch {
+    return new Response("Invalid event", { status: 400 });
+  }
+
+  if (typeof payload.action !== "string" || !ALLOWED_TRADE_ACTIONS.has(payload.action)) {
+    return new Response("Invalid event", { status: 400 });
+  }
+
+  recordTradeEvent(request, env, {
+    action: payload.action,
+    brand: cleanAnalyticsValue(payload.brand, "unknown"),
+    campaign: cleanAnalyticsValue(payload.campaign, "direct"),
+    path: cleanAnalyticsValue(payload.path, "/trade/unknown", 160),
+  });
+
+  return new Response(null, {
+    status: 204,
+    headers: { "Cache-Control": "no-store" },
+  });
+}
 
 async function serveTradeAsset(request: Request, env: WorkerEnvironment) {
   const url = new URL(request.url);
@@ -96,11 +166,28 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
-      const tradeAssetResponse = await serveTradeAsset(request, env as WorkerEnvironment);
+      const workerEnv = env as WorkerEnvironment;
+      const tradeEventResponse = await handleTradeEvent(request, workerEnv);
+      if (tradeEventResponse) return tradeEventResponse;
+
+      const tradeAssetResponse = await serveTradeAsset(request, workerEnv);
       if (tradeAssetResponse) return tradeAssetResponse;
 
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
+      const url = new URL(request.url);
+      if (
+        request.method === "GET" &&
+        url.pathname === "/trade/amplified" &&
+        response.status < 400
+      ) {
+        recordTradeEvent(request, workerEnv, {
+          action: "page-view",
+          brand: "amplified",
+          campaign: url.searchParams.get("campaign") ?? "direct",
+          path: url.pathname,
+        });
+      }
       return await normalizeCatastrophicSsrResponse(response);
     } catch (error) {
       console.error(error);

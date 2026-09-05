@@ -5,15 +5,21 @@
   "compatibility_flags": ["nodejs_compat"],
   "main": "dist/server/server.js",
   "assets": {
-    "directory": "dist/client"
+    "directory": "dist/client",
   },
   "r2_buckets": [
     {
       "binding": "TRADE_ASSETS",
-      "bucket_name": "advanced-studio-trade-assets"
-    }
+      "bucket_name": "advanced-studio-trade-assets",
+    },
+  ],
+  "analytics_engine_datasets": [
+    {
+      "binding": "TRADE_ANALYTICS",
+      "dataset": "advanced_studio_trade_events",
+    },
   ],
   "observability": {
-    "enabled": true
-  }
+    "enabled": true,
+  },
 }
