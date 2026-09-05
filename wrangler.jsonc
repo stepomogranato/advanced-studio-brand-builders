@@ -7,6 +7,12 @@
   "assets": {
     "directory": "dist/client"
   },
+  "r2_buckets": [
+    {
+      "binding": "TRADE_ASSETS",
+      "bucket_name": "advanced-studio-trade-assets"
+    }
+  ],
   "observability": {
     "enabled": true
   }

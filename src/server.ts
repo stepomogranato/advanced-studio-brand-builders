@@ -7,6 +7,59 @@ type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
 };
 
+type TradeAssetObject = {
+  body: ReadableStream;
+  size: number;
+  httpEtag?: string;
+  range?: { offset: number; length: number };
+  writeHttpMetadata: (headers: Headers) => void;
+};
+
+type TradeAssetBucket = {
+  get: (key: string, options?: { range?: Headers }) => Promise<TradeAssetObject | null>;
+  head: (key: string) => Promise<Omit<TradeAssetObject, "body"> | null>;
+};
+
+type WorkerEnvironment = {
+  TRADE_ASSETS?: TradeAssetBucket;
+};
+
+const TRADE_ASSET_PREFIX = "/trade-assets/";
+
+async function serveTradeAsset(request: Request, env: WorkerEnvironment) {
+  const url = new URL(request.url);
+  if (!url.pathname.startsWith(TRADE_ASSET_PREFIX) || !env.TRADE_ASSETS) return;
+
+  const key = decodeURIComponent(url.pathname.slice(TRADE_ASSET_PREFIX.length));
+  if (!key || key.split("/").includes("..")) return new Response("Not found", { status: 404 });
+
+  const object =
+    request.method === "HEAD"
+      ? await env.TRADE_ASSETS.head(key)
+      : await env.TRADE_ASSETS.get(key, { range: request.headers });
+
+  if (!object) return;
+
+  const headers = new Headers();
+  object.writeHttpMetadata(headers);
+  headers.set("Accept-Ranges", "bytes");
+  headers.set("Cache-Control", "public, max-age=3600");
+  if (object.httpEtag) headers.set("ETag", object.httpEtag);
+
+  if (object.range) {
+    const { offset, length } = object.range;
+    headers.set("Content-Length", String(length));
+    headers.set("Content-Range", `bytes ${offset}-${offset + length - 1}/${object.size}`);
+  } else {
+    headers.set("Content-Length", String(object.size));
+  }
+
+  return new Response("body" in object ? object.body : null, {
+    status: object.range ? 206 : 200,
+    headers,
+  });
+}
+
 let serverEntryPromise: Promise<ServerEntry> | undefined;
 
 async function getServerEntry(): Promise<ServerEntry> {
@@ -40,6 +93,9 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const tradeAssetResponse = await serveTradeAsset(request, env as WorkerEnvironment);
+      if (tradeAssetResponse) return tradeAssetResponse;
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
