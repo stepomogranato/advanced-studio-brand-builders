@@ -4,6 +4,8 @@ import nalgene from "@/assets/brand-nalgene-new.jpg";
 import premivm from "@/assets/brand-premivm-new.jpg";
 import salomon from "@/assets/brand-salomon-new.jpg";
 import amplified from "@/assets/brand-amplified-new.jpg";
+import nathan from "@/assets/brand-nathan-new.jpg";
+import pearlIzumi from "@/assets/brand-pearl-izumi-new.jpg";
 
 export type Brand = {
   slug: string;
@@ -71,5 +73,23 @@ export const brands: Brand[] = [
     imageAlt: "Athlete wearing performance gear during training",
     titleLines: ["Amplified"],
     titleClassName: "text-[3.35rem] md:text-[4.25rem] lg:text-[4.75rem]",
+  },
+  {
+    slug: "nathan-running",
+    name: "NATHAN Running",
+    category: "RUNNING ESSENTIALS",
+    image: nathan,
+    imageAlt: "Trail runner wearing a NATHAN hydration vest",
+    titleLines: ["Nathan"],
+    titleClassName: "text-[3.5rem] md:text-[4.4rem] lg:text-[4.9rem]",
+  },
+  {
+    slug: "pearl-izumi",
+    name: "PEARL iZUMi",
+    category: "CYCLING APPAREL",
+    image: pearlIzumi,
+    imageAlt: "Mountain bike racer celebrating at the finish line",
+    titleLines: ["Pearl", "Izumi"],
+    titleClassName: "text-[3.25rem] md:text-[4.1rem] lg:text-[4.6rem]",
   },
 ];
