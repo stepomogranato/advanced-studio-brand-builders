@@ -6,6 +6,7 @@ type TradeLandingPageProps = {
 
 export function TradeLandingPage({ config }: TradeLandingPageProps) {
   const catalogueHref = config.catalogue.href;
+  const materialName = config.catalogue.label.toLowerCase().replaceAll(" ", "-");
 
   function trackAction(action: string) {
     const params = new URLSearchParams(window.location.search);
@@ -53,9 +54,9 @@ export function TradeLandingPage({ config }: TradeLandingPageProps) {
                   href={catalogueHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-trade-action="view-catalogue"
+                  data-trade-action={`view-${materialName}`}
                   data-trade-brand={config.brand.toLowerCase()}
-                  onClick={() => trackAction("view-catalogue")}
+                  onClick={() => trackAction(`view-${materialName}`)}
                   className="text-eyebrow inline-flex min-h-14 items-center justify-center bg-accent px-7 text-center text-background transition-colors hover:bg-accent-dark"
                 >
                   VIEW {config.catalogue.label}
@@ -63,9 +64,9 @@ export function TradeLandingPage({ config }: TradeLandingPageProps) {
                 <a
                   href={catalogueHref}
                   download
-                  data-trade-action="download-catalogue"
+                  data-trade-action={`download-${materialName}`}
                   data-trade-brand={config.brand.toLowerCase()}
-                  onClick={() => trackAction("download-catalogue")}
+                  onClick={() => trackAction(`download-${materialName}`)}
                   className="text-eyebrow inline-flex min-h-14 items-center justify-center border border-background/40 px-7 text-center text-background transition-colors hover:border-background hover:bg-background hover:text-foreground"
                 >
                   DOWNLOAD {config.catalogue.label}
@@ -80,10 +81,10 @@ export function TradeLandingPage({ config }: TradeLandingPageProps) {
                 href={catalogueHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`View ${config.brand} catalogue`}
-                data-trade-action="view-catalogue"
+                aria-label={`View ${config.brand} ${config.catalogue.label.toLowerCase()}`}
+                data-trade-action={`view-${materialName}`}
                 data-trade-brand={config.brand.toLowerCase()}
-                onClick={() => trackAction("view-catalogue")}
+                onClick={() => trackAction(`view-${materialName}`)}
                 className="group block max-w-[18rem] justify-self-center md:max-w-sm"
               >
                 <figure className="overflow-hidden border border-background/15 bg-background/5 p-2 shadow-2xl shadow-black/30 transition-transform duration-500 group-hover:-translate-y-1">
