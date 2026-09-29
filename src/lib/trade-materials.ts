@@ -1,4 +1,5 @@
 import amplifiedCatalogueCover from "../assets/trade-amplified-catalogue-cover.jpg";
+import furtherJournalCover from "../assets/trade-further-journal-cover.jpg";
 
 export type TradeMaterial = {
   label: string;
@@ -15,7 +16,7 @@ export type TradePageConfig = {
     alt: string;
   };
   catalogue: TradeMaterial;
-  additionalMaterial: TradeMaterial;
+  additionalMaterial?: TradeMaterial;
   contactEmail: string;
 };
 
@@ -34,6 +35,21 @@ export const amplifiedTradePage: TradePageConfig = {
   additionalMaterial: {
     label: "ORDER FORM",
     href: "/trade-assets/amplified/amplified-order-form.xlsx",
+  },
+  contactEmail: "info@advancedstudio.eu",
+};
+
+export const furtherTradePage: TradePageConfig = {
+  brand: "FURTHER",
+  collectionLabel: "FURTHER JOURNAL",
+  description: "Download the FURTHER journal.",
+  coverImage: {
+    src: furtherJournalCover,
+    alt: "Cover of the FURTHER journal, episode 001",
+  },
+  catalogue: {
+    label: "JOURNAL",
+    href: "/trade-assets/further/further-journal.pdf",
   },
   contactEmail: "info@advancedstudio.eu",
 };

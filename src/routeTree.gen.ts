@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TradeFurtherRouteImport } from './routes/trade.further'
 import { Route as TradeAmplifiedRouteImport } from './routes/trade.amplified'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -29,6 +30,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TradeFurtherRoute = TradeFurtherRouteImport.update({
+  id: '/trade/further',
+  path: '/trade/further',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TradeAmplifiedRoute = TradeAmplifiedRouteImport.update({
   id: '/trade/amplified',
   path: '/trade/amplified',
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trade/amplified': typeof TradeAmplifiedRoute
+  '/trade/further': typeof TradeFurtherRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trade/amplified': typeof TradeAmplifiedRoute
+  '/trade/further': typeof TradeFurtherRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,25 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trade/amplified': typeof TradeAmplifiedRoute
+  '/trade/further': typeof TradeFurtherRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/privacy' | '/sitemap.xml' | '/trade/amplified'
+  fullPaths:
+    | '/'
+    | '/privacy'
+    | '/sitemap.xml'
+    | '/trade/amplified'
+    | '/trade/further'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/privacy' | '/sitemap.xml' | '/trade/amplified'
-  id: '__root__' | '/' | '/privacy' | '/sitemap.xml' | '/trade/amplified'
+  to: '/' | '/privacy' | '/sitemap.xml' | '/trade/amplified' | '/trade/further'
+  id:
+    | '__root__'
+    | '/'
+    | '/privacy'
+    | '/sitemap.xml'
+    | '/trade/amplified'
+    | '/trade/further'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +87,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TradeAmplifiedRoute: typeof TradeAmplifiedRoute
+  TradeFurtherRoute: typeof TradeFurtherRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,6 +113,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trade/further': {
+      id: '/trade/further'
+      path: '/trade/further'
+      fullPath: '/trade/further'
+      preLoaderRoute: typeof TradeFurtherRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/trade/amplified': {
       id: '/trade/amplified'
       path: '/trade/amplified'
@@ -107,6 +135,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TradeAmplifiedRoute: TradeAmplifiedRoute,
+  TradeFurtherRoute: TradeFurtherRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
